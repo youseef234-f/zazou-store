@@ -1,1096 +1,1854 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زازو - zazou | متجر الحيوانات الأليفة الفاخر</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زازو zazou | متجر الحيوانات الأليفة</title>
+  
+  <!-- FontAwesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-color: #2e1d52;
+      --primary-light: #4a2e80;
+      --accent-orange: #ff6b2b;
+      --accent-green: #2cd46f;
+      --bg-color: #f4f5f9;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --text-muted: #777777;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      padding-bottom: 40px;
+    }
+
+    /* Top Banner */
+    .top-banner {
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+      color: #fff;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* Header Navbar */
+    header {
+      background-color: var(--card-bg);
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    .header-brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary-color);
+    }
+
+    .header-brand-title span {
+      color: var(--accent-orange);
+      margin-right: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .user-btn {
+      background: #f0f0f0;
+      color: var(--primary-color);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .cart-btn {
+      background-color: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Hero Section - الواجهة الترحيبية الجديدة لـ زازو والعميل والأليف */
+    .hero-section {
+      text-align: center;
+      padding: 25px 15px 15px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-avatar-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-avatar-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,43,0.3) 0%, rgba(46,29,82,0) 70%);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    .hero-avatar-svg {
+      width: 130px;
+      height: 130px;
+      z-index: 2;
+      filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.15));
+      animation: floatAnimation 3.5s infinite ease-in-out;
+    }
+
+    @keyframes floatAnimation {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(0.95); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.6; }
+    }
+
+    /* تصميم بطاقة الترحيب */
+    .welcome-card {
+      background: linear-gradient(135deg, rgba(46,29,82,0.06), rgba(255,107,43,0.08));
+      border: 1px dashed rgba(255,107,43,0.4);
+      padding: 12px 20px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+      display: inline-block;
+      max-width: 90%;
+    }
+
+    .welcome-card h2 {
+      font-size: 18px;
+      color: var(--primary-color);
+      font-weight: 800;
+    }
+
+    .welcome-card h2 span.user-highlight {
+      color: var(--accent-orange);
+    }
+
+    .welcome-card h2 span.pet-highlight {
+      color: #9b59b6;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 900;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .hero-title .ar { color: var(--primary-color); }
+    .hero-title .en { color: var(--accent-orange); font-family: Arial, sans-serif; }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+
+    /* Sidebar Drawer */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 200; display: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0; right: -280px; width: 280px; height: 100%;
+      background: #fff; z-index: 201;
+      transition: right 0.3s ease;
+      padding: 20px; display: flex;
+      flex-direction: column; gap: 15px;
+    }
+
+    .sidebar.open { right: 0; }
+    .sidebar-overlay.open { display: block; }
+
+    .sidebar-header {
+      display: flex; justify-content: space-between;
+      align-items: center; border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
+
+    .menu-item {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #333; font-weight: 600;
+      padding: 10px; border-radius: 8px; background: #f9f9f9;
+      cursor: pointer;
+    }
+
+    /* Container & Search */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 15px 15px 15px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    .search-box button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Filters / Categories */
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+
+    .cat-chip {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      white-space: nowrap;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cat-chip.active {
+      background: var(--primary-color);
+      color: #fff;
+      border-color: var(--primary-color);
+    }
+
+    /* Products Grid */
+    .product-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .product-title { font-weight: bold; font-size: 15px; margin-bottom: 5px; }
+    .product-price { color: var(--primary-color); font-weight: 800; font-size: 16px; margin-bottom: 10px; }
     
-    <style>
-        :root {
-            --primary-color: #2b1f4d;
-            --accent-orange: #ff7a29;
-            --accent-yellow: #f4c430;
-            --accent-green: #25d366;
-            --bg-light: #f4f6f9;
-            --card-bg: #ffffff;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --soft-shadow: 0 10px 30px -5px rgba(43, 31, 77, 0.08);
-            --glass-border: 1px solid rgba(226, 232, 240, 0.8);
-            --radius: 18px;
-            --transition: all 0.25s ease-in-out;
-        }
+    .btn-add-cart {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Readex Pro', system-ui, sans-serif;
-        }
+    /* Feeding Calculator Card */
+    .calc-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 25px;
+    }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            direction: rtl;
-            overflow-x: hidden;
-        }
+    .calc-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
 
-        /* 1. Modal التسجيل */
-        .welcome-modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            z-index: 99999;
-            display: flex; justify-content: center; align-items: center;
-            padding: 20px;
-            transition: var(--transition);
-        }
+    .calc-inputs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
 
-        .welcome-modal-overlay.hidden {
-            opacity: 0; visibility: hidden; pointer-events: none;
-        }
+    .calc-inputs input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+    }
 
-        .welcome-card {
-            background: #ffffff;
-            width: 100%; max-width: 500px;
-            border-radius: 24px;
-            padding: 35px 30px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            text-align: center;
-        }
+    .calc-inputs button {
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        .pet-types-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr);
-            gap: 15px; margin: 20px 0;
-        }
+    .calc-result {
+      background: #f8f9fa;
+      border-right: 3px solid var(--accent-orange);
+      padding: 10px;
+      font-size: 13px;
+      border-radius: 4px;
+      display: none;
+    }
 
-        .pet-option-card {
-            border: 2px solid #e2e8f0;
-            border-radius: var(--radius);
-            padding: 16px 10px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
-            background: #f8fafc;
-        }
+    /* Dynamic Review System */
+    .review-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-        .pet-option-card i { font-size: 28px; color: var(--primary-color); }
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      font-size: 28px;
+      cursor: pointer;
+      margin: 10px 0;
+      color: #ccc;
+    }
 
-        .pet-option-card:hover, .pet-option-card.selected {
-            border-color: var(--accent-orange);
-            background: #fff7ed;
-            transform: translateY(-2px);
-        }
+    .stars span.active { color: #ffb400; }
 
-        .user-info-step { display: none; text-align: right; }
-        .form-group { margin-bottom: 14px; }
-        .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--primary-color); margin-bottom: 6px; }
-        .form-control {
-            width: 100%; padding: 12px 16px;
-            border: 1.5px solid #e2e8f0; border-radius: 12px;
-            font-size: 14px; outline: none; transition: var(--transition);
-        }
-        .form-control:focus { border-color: var(--accent-orange); box-shadow: 0 0 0 3px rgba(255, 122, 41, 0.15); }
-        .form-row { display: flex; gap: 12px; }
+    .emoji-display {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
 
-        .btn-primary-block {
-            width: 100%; background: var(--accent-orange); color: white;
-            border: none; padding: 14px; border-radius: 30px;
-            font-size: 15px; font-weight: 700; cursor: pointer;
-            transition: var(--transition); margin-top: 10px;
-        }
-        .btn-primary-block:hover { background: #ea580c; }
+    .review-card textarea {
+      width: 100%;
+      height: 70px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 10px;
+      resize: none;
+    }
 
-        /* 2. الهيدر المطور */
-        .announcement-bar {
-            background-color: var(--primary-color);
-            color: #ffffff; text-align: center; padding: 8px 15px;
-            font-size: 12px; font-weight: 500;
-        }
-        .announcement-bar span { color: var(--accent-yellow); font-weight: 700; }
+    .media-upload-label {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
 
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            position: sticky; top: 0; z-index: 100;
-            border-bottom: var(--glass-border);
-        }
+    .media-preview-container {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
 
-        .header-container {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 20px; gap: 15px;
-        }
+    .media-preview-item {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
 
-        .logo {
-            font-size: 22px; font-weight: 700; color: var(--primary-color);
-            text-decoration: none; display: flex; align-items: center; gap: 8px;
-        }
-        .logo-arabic { color: var(--primary-color); font-weight: 800; }
-        .logo-separator { color: var(--accent-orange); opacity: 0.6; font-weight: 300; }
-        .logo-english { color: var(--accent-orange); font-weight: 600; font-size: 19px; letter-spacing: 0.5px; }
+    .btn-review {
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      width: 100%;
+      cursor: pointer;
+    }
 
-        .user-greeting {
-            display: flex; align-items: center; gap: 6px;
-            font-size: 13px; color: var(--primary-color); font-weight: 600;
-            background: #f1f5f9; padding: 8px 14px; border-radius: 20px;
-            white-space: nowrap;
-        }
+    .reviews-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+      text-align: right;
+    }
 
-        .search-bar {
-            flex: 0 1 380px; display: flex; align-items: center;
-            background: #f1f5f9; border-radius: 30px;
-            padding: 4px 16px; border: 1.5px solid transparent;
-            transition: var(--transition);
-        }
-        .search-bar:focus-within { border-color: var(--accent-orange); background: #fff; }
-        .search-bar input { border: none; background: transparent; width: 100%; padding: 8px; outline: none; font-size: 13px; }
-        .search-bar button { border: none; background: transparent; color: var(--text-muted); cursor: pointer; }
-        .search-paw-icon {
-            color: var(--accent-orange);
-            font-size: 16px;
-            margin-right: 6px;
-            transform: rotate(15deg);
-        }
+    /* Cart Drawer & Controls */
+    .cart-drawer-overlay, .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 300;
+      display: none;
+    }
 
-        .cart-btn {
-            background-color: var(--accent-orange); color: white;
-            padding: 6px 18px; border-radius: 30px; text-decoration: none;
-            font-weight: 600; font-size: 13px; display: flex; align-items: center; gap: 8px;
-            cursor: pointer; border: none; transition: var(--transition); white-space: nowrap;
-        }
-        .cart-btn:hover { background-color: #ea580c; }
-        
-        .dog-cart-wrapper {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-        }
+    .modal-overlay.active { display: flex; justify-content: center; align-items: center; }
 
-        /* 3. Hero Banner */
-        .hero-banner { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
-        .hero-card {
-            background: linear-gradient(135deg, #2b1f4d 0%, #3b2a6b 100%);
-            border-radius: 24px; padding: 40px; color: white;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .hero-text { max-width: 500px; }
-        .hero-text h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
-        .hero-text p { color: #cbd5e1; font-size: 14px; margin-bottom: 20px; }
-        .hero-btn {
-            display: inline-block; background: var(--accent-orange); color: white;
-            padding: 10px 24px; border-radius: 30px; text-decoration: none;
-            font-weight: 600; font-size: 14px; transition: var(--transition);
-        }
-        .hero-btn:hover { background: #ea580c; }
-        .hero-img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 4px solid rgba(255,255,255,0.15); }
+    .cart-drawer {
+      position: fixed;
+      top: 0; left: -320px;
+      width: 320px; height: 100%;
+      background: #fff;
+      z-index: 301;
+      transition: left 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* 4. حاسبة التغذية */
-        .calc-box {
-            background: white; border-radius: var(--radius); padding: 22px;
-            box-shadow: var(--soft-shadow); border: var(--glass-border); margin-bottom: 25px;
-        }
-        .calc-box h3 { font-size: 16px; color: var(--primary-color); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .calc-inputs { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
-        .calc-result { margin-top: 12px; padding: 12px; background: #f8fafc; border-radius: 10px; color: var(--primary-color); font-size: 13px; display: none; }
+    .cart-drawer.open { left: 0; }
 
-        /* 5. الأقسام ومعرض المنتجات */
-        .categories { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; display: flex; gap: 10px; overflow-x: auto; }
-        .cat-chip {
-            background: white; padding: 8px 18px; border-radius: 30px;
-            border: 1px solid #e2e8f0; cursor: pointer; white-space: nowrap;
-            font-weight: 500; font-size: 13px; color: var(--text-dark); transition: var(--transition);
-        }
-        .cat-chip.active, .cat-chip:hover { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+    .cart-header {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .container { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; }
-        .section-title { font-size: 20px; margin-bottom: 20px; color: var(--primary-color); border-right: 4px solid var(--accent-orange); padding-right: 10px; }
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
 
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
-        .product-card {
-            background: var(--card-bg); border-radius: var(--radius);
-            box-shadow: var(--soft-shadow); border: var(--glass-border);
-            overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; position: relative;
-        }
-        .product-card:hover { transform: translateY(-4px); }
-        .badge {
-            position: absolute; top: 12px; right: 12px; background: var(--accent-orange);
-            color: white; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700;
-        }
-        .product-img { width: 100%; height: 190px; object-fit: contain; background: #ffffff; padding: 15px; }
-        .product-info { padding: 16px; display: flex; flex-direction: column; flex-grow: 1; border-top: 1px solid #f1f5f9; }
-        .product-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; color: var(--text-dark); line-height: 1.4; }
-        .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; margin-bottom: 12px; }
-        .price { font-size: 17px; font-weight: 700; color: var(--primary-color); }
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
 
-        .btn-group { display: flex; gap: 8px; }
-        .btn-add {
-            flex: 1; background-color: var(--primary-color); color: white;
-            border: none; padding: 8px; border-radius: 8px; cursor: pointer;
-            font-weight: 600; font-size: 12px; display: flex; align-items: center; justify-content: center; gap: 5px;
-        }
-        .btn-add:hover { background-color: var(--accent-orange); }
-        .btn-quick { background: #f1f5f9; color: var(--primary-color); border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 12px; }
+    .cart-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
 
-        /* 6. قسم التقييمات */
-        .reviews-section { background: white; padding: 25px; border-radius: var(--radius); box-shadow: var(--soft-shadow); margin-top: 35px; border: var(--glass-border); }
-        
-        .discount-banner-review {
-            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-            border: 1.5px dashed var(--accent-orange);
-            border-radius: 12px;
-            padding: 12px 16px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #c2410c;
-            font-size: 13px;
-            font-weight: 600;
-        }
-        .discount-banner-review i { font-size: 20px; color: var(--accent-orange); }
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
 
-        .add-review-box {
-            background: #f8fafc; border-radius: 12px; padding: 18px; border: 1px solid #e2e8f0;
-        }
-        .add-review-box h4 { font-size: 14px; color: var(--primary-color); margin-bottom: 10px; }
-        .media-upload-label {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: #ffffff; border: 1.5px solid var(--accent-orange);
-            color: var(--accent-orange); padding: 8px 14px; border-radius: 8px;
-            font-size: 12px; font-weight: 600; cursor: pointer; transition: var(--transition);
-        }
-        .media-upload-label:hover { background: var(--accent-orange); color: white; }
-        .media-preview-container { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
-        .media-preview-item { width: 70px; height: 70px; border-radius: 8px; object-fit: cover; border: 1px solid #cbd5e1; }
-        .media-preview-video { width: 120px; height: 70px; border-radius: 8px; object-fit: cover; }
+    .cart-item-info { flex: 1; }
+    .cart-item-info h5 { font-size: 13px; margin-bottom: 4px; }
+    .cart-item-info span { font-size: 12px; color: var(--primary-color); font-weight: bold; }
 
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; margin-top: 15px; }
-        .review-card { background: #f8fafc; border-radius: 12px; padding: 15px; text-align: right; border: 1px solid #e2e8f0; }
-        .review-card h5 { font-size: 13px; color: var(--primary-color); margin-bottom: 4px; }
-        .review-card p { font-size: 12px; color: var(--text-dark); margin-bottom: 8px; }
-        .review-media { display: flex; gap: 8px; margin-top: 8px; overflow-x: auto; }
-        .review-media img { width: 50px; height: 50px; border-radius: 6px; object-fit: cover; }
-        .review-media video { width: 80px; height: 50px; border-radius: 6px; object-fit: cover; }
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-        /* 7. السلة والدفع */
-        .cart-drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: none; z-index: 999; }
-        .cart-drawer { position: fixed; top: 0; left: -380px; width: 340px; height: 100%; background: white; z-index: 1000; transition: left 0.3s ease; display: flex; flex-direction: column; box-shadow: 5px 0 25px rgba(0,0,0,0.1); }
-        .cart-drawer.open { left: 0; }
-        .cart-header { padding: 16px; background: var(--primary-color); color: white; display: flex; justify-content: space-between; align-items: center; }
-        .close-cart { background: transparent; border: none; color: white; font-size: 20px; cursor: pointer; }
-        .free-shipping-bar { background: #f1f5f9; padding: 8px 12px; font-size: 11px; text-align: center; font-weight: 600; color: var(--primary-color); }
-        .cart-body { padding: 16px; flex-grow: 1; overflow-y: auto; }
-        .cart-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9; }
-        .cart-item img { width: 45px; height: 45px; border-radius: 6px; object-fit: cover; }
-        .cart-item-info h5 { font-size: 12px; margin-bottom: 2px; }
-        .cart-item-info span { font-size: 12px; color: var(--accent-orange); font-weight: 700; }
-        .cart-footer { padding: 16px; border-top: 1px solid #f1f5f9; }
-        .total-row { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 12px; font-size: 14px; }
-        .checkout-btn { width: 100%; background: var(--accent-orange); color: white; border: none; padding: 10px; border-radius: 20px; font-weight: 700; cursor: pointer; }
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      background: #e0e0e0;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .payment-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); z-index: 10000; display: none; justify-content: center; align-items: center; padding: 20px; }
-        .payment-modal-overlay.active { display: flex; }
-        .payment-card { background: white; width: 100%; max-width: 440px; border-radius: 20px; padding: 22px; position: relative; }
-        .close-modal { position: absolute; top: 12px; left: 16px; background: none; border: none; font-size: 18px; cursor: pointer; color: var(--text-muted); }
-        .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px; }
-        .pay-method { border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 10px 6px; text-align: center; cursor: pointer; font-size: 11px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .pay-method.selected { border-color: var(--accent-orange); background: #fff7ed; color: var(--accent-orange); }
+    .qty-btn:hover {
+      background: var(--accent-orange);
+      color: #fff;
+    }
 
-        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: var(--accent-green); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); z-index: 998; text-decoration: none; }
-        .toast { position: fixed; bottom: 20px; right: 20px; background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 8px; transform: translateY(100px); opacity: 0; transition: var(--transition); z-index: 1001; font-size: 13px; }
-        .toast.show { transform: translateY(0); opacity: 1; }
+    .qty-num {
+      font-size: 13px;
+      font-weight: bold;
+      min-width: 16px;
+      text-align: center;
+    }
 
-        /* 8. قسم السوشيال ميديا */
-        .social-media-section {
-            background: #ffffff;
-            border-radius: var(--radius);
-            padding: 30px 20px;
-            box-shadow: var(--soft-shadow);
-            border: var(--glass-border);
-            margin-top: 40px;
-            text-align: center;
-        }
+    .delete-item-btn {
+      background: none;
+      border: none;
+      color: #ff4d4d;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 4px;
+    }
 
-        .social-media-section h3 {
-            font-size: 18px;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+    .cart-footer {
+      padding: 15px;
+      border-top: 1px solid #eee;
+    }
 
-        .social-media-section p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
 
-        .social-links-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    .checkout-btn {
+      width: 100%;
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        .social-card {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
+    /* Modal Dialog Styling (Profile & Payment) */
+    .modal-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 420px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
 
-        .social-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-        }
+    .close-modal {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
-        .social-card.instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
+    .form-group {
+      margin-bottom: 12px;
+      text-align: right;
+    }
 
-        .social-card.facebook {
-            background: #1877f2;
-        }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: var(--primary-color);
+    }
 
-        .social-card.tiktok {
-            background: #000000;
-        }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+    }
 
-        .social-card i {
-            font-size: 18px;
-        }
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 15px 0;
+    }
 
-        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 13px; }
-    </style>
+    .pay-method {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .pay-method.selected {
+      border-color: var(--accent-orange);
+      background: #fff8f5;
+    }
+
+    .btn-primary-block {
+      width: 100%;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Social Section */
+    .social-media-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-top: 20px;
+    }
+
+    .social-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 12px;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .social-card.instagram { background: linear-gradient(45deg, #f09433, #bc1888); }
+    .social-card.facebook { background: #1877f2; }
+    .social-card.tiktok { background: #000; }
+
+    /* Float WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25d366;
+      color: #fff;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 150;
+      text-decoration: none;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: -60px;
+      right: 50%;
+      transform: translateX(50%);
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: bottom 0.3s ease;
+      z-index: 400;
+      white-space: nowrap;
+    }
+
+    .toast.show { bottom: 20px; }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Modal التسجيل -->
-    <div class="welcome-modal-overlay" id="welcomeModal">
-        <div class="welcome-card">
-            <div id="stepPetSelection">
-                <h2>مرحباً بك في زازو 🐾</h2>
-                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">اختر نوع أليفك لتخصيص أفضل المنتجات له:</p>
-                
-                <div class="pet-types-grid">
-                    <div class="pet-option-card" onclick="selectPetType('cats', this)">
-                        <i class="fa-solid fa-cat"></i>
-                        <span>قطة 🐱</span>
-                    </div>
-                    <div class="pet-option-card" onclick="selectPetType('dogs', this)">
-                        <i class="fa-solid fa-dog"></i>
-                        <span>كلب 🐶</span>
-                    </div>
-                    <div class="pet-option-card" onclick="selectPetType('birds', this)">
-                        <i class="fa-solid fa-crow"></i>
-                        <span>عصفور 🦜</span>
-                    </div>
-                    <div class="pet-option-card" onclick="selectPetType('other', this)">
-                        <i class="fa-solid fa-paw"></i>
-                        <span>آخر</span>
-                    </div>
-                </div>
+  <div class="top-banner">🎉 خصم خاص لكل التقييمات! | زازو zazou</div>
 
-                <button class="btn-primary-block" id="btnNextStep" style="display: none;" onclick="goToUserInfoStep()">متابعة التسجيل ➔</button>
-            </div>
+  <!-- Header Navbar -->
+  <header>
+    <div class="header-right">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="header-brand-title">
+        زازو <span>zazou</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <!-- زر البروفايل -->
+      <button class="user-btn" onclick="openProfileModal()">
+        <i class="fa-solid fa-user"></i> <span id="headerUserName">حسابي</span>
+      </button>
+      <button class="cart-btn" id="openCartBtn">🛒 <span id="cartCount">(0)</span></button>
+    </div>
+  </header>
 
-            <div id="stepUserInfo" class="user-info-step">
-                <h2>بيانات التواصل والعنوان 📝</h2>
-                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">يرجى ملء البيانات لإكمال طلباتك بأمان:</p>
+  <!-- Sidebar Menu -->
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>القائمة الرئيسية</h3>
+      <button class="close-btn" onclick="toggleSidebar()">✕</button>
+    </div>
+    <div class="menu-item" onclick="toggleSidebar(); openProfileModal();">
+      <i class="fa-solid fa-id-card"></i> الملف الشخصي والتعديل
+    </div>
+    <a href="tel:01010166348" class="menu-item"><i class="fa-solid fa-phone"></i> اتصل بنا: 01010166348</a>
+    <a href="https://maps.app.goo.gl/UUd6hgwb76kfR1jy7?g_st=ai" target="_blank" class="menu-item"><i class="fa-solid fa-location-dot"></i> موقع الفرع (Google Maps)</a>
+    <hr>
+    <h4>تابعنا على السوشيال ميديا:</h4>
+    <a href="https://instagram.com" target="_blank" class="menu-item"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="https://facebook.com" target="_blank" class="menu-item"><i class="fa-brands fa-facebook"></i> Facebook</a>
+    <a href="https://tiktok.com" target="_blank" class="menu-item"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+  </div>
 
-                <div class="form-group">
-                    <label>اسم العميل *</label>
-                    <input type="text" id="custName" class="form-control" placeholder="اسمك الكريم">
-                </div>
-                <div class="form-group">
-                    <label>رقم الهاتف *</label>
-                    <input type="tel" id="custPhone" class="form-control" placeholder="01xxxxxxxxx">
-                </div>
-                <div class="form-group">
-                    <label>العنوان بالتفصيل *</label>
-                    <input type="text" id="custAddress" class="form-control" placeholder="المدينة، اسم الشارع، رقم المبنى">
-                </div>
-                <div class="form-row">
-                    <div class="form-group" style="flex: 1;">
-                        <label>اسم أليفك</label>
-                        <input type="text" id="petName" class="form-control" placeholder="مثال: لوسي">
-                    </div>
-                    <div class="form-group" style="flex: 1;">
-                        <label>عمر الأليف *</label>
-                        <input type="text" id="petAge" class="form-control" placeholder="مثال: 6 أشهر">
-                    </div>
-                </div>
-
-                <button class="btn-primary-block" onclick="completeRegistration()">بدء التسوق 🎉</button>
-            </div>
-        </div>
+  <!-- Hero Section: الواجهة الترحيبية المخصصة -->
+  <section class="hero-section">
+    <div class="hero-avatar-wrapper">
+      <div class="hero-avatar-glow"></div>
+      <!-- رسم شخصية زازو العصفور المتجهي -->
+      <svg class="hero-avatar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="95" fill="#fcfcfc" stroke="#d4af37" stroke-width="4"/>
+        <circle cx="100" cy="100" r="85" fill="#e8eaed"/>
+        <circle cx="100" cy="100" r="72" fill="#d0d4dc"/>
+        <path d="M 60 100 Q 60 50 100 50 Q 140 50 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="#6c5ce7"/>
+        <circle cx="85" cy="85" r="18" fill="#ffffff" stroke="#2d3436" stroke-width="2"/>
+        <circle cx="88" cy="85" r="7" fill="#000000"/>
+        <circle cx="90" cy="83" r="2.5" fill="#ffffff"/>
+        <path d="M 68 68 Q 85 55 102 70" stroke="#000000" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M 98 75 Q 160 70 145 105 Q 110 115 95 98 Z" fill="#ff6b2b" stroke="#d35400" stroke-width="2"/>
+        <path d="M 95 98 Q 130 110 105 120 Z" fill="#e67e22"/>
+        <path d="M 70 128 L 100 175 L 130 128 Q 100 145 70 128 Z" fill="#2e1d52"/>
+        <path d="M 85 130 L 100 160 L 115 130 Z" fill="#4a2e80"/>
+        <polygon points="90,165 100,172 110,165 100,178" fill="#f1c40f"/>
+      </svg>
     </div>
 
-    <!-- الهيدر -->
-    <div class="announcement-bar">
-        🐾 خصم <span>20%</span> بمناسبة افتتاح المتجر! استخدم كود: <span>ZAZOU20</span>
+    <!-- بطاقة الترحيب المخصصة بالعميل وأليفه -->
+    <div class="welcome-card" id="welcomeCard">
+      <h2>أهلاً بك <span class="user-highlight" id="welcomeUserName">يا صديقنا</span> 👋، و <span class="pet-highlight" id="welcomePetName">أليفك العزيز</span> 🐾</h2>
     </div>
 
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-paw"></i>
-                <span class="logo-arabic">زازو</span>
-                <span class="logo-separator">|</span>
-                <span class="logo-english">zazou</span>
-            </a>
+    <h1 class="hero-title">
+      <span class="ar">زازو</span>
+      <span class="en">zazou</span>
+    </h1>
+    <p class="hero-subtitle">عالم أليفك السعيد بين يديك 🐾</p>
+  </section>
 
-            <div class="user-greeting" id="userGreeting" style="display: none;">
-                <i class="fa-solid fa-user-check"></i>
-                <span id="greetingText">أهلاً بك!</span>
-            </div>
-            
-            <div class="search-bar">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input type="text" id="searchInput" placeholder="ابحث عن طعام، ألعاب...">
-                <i class="fa-solid fa-paw search-paw-icon" title="بحث سريع"></i>
-            </div>
-
-            <button class="cart-btn" id="openCartBtn">
-                <div class="dog-cart-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 24C18 20 22 16 28 16C32 16 35 18 37 20L44 18C46 17.5 48 19 48 21V25C50 25 52 27 52 29V32C50 33 48 32 48 32V44C48 46 46 48 44 48H38V40H26V48H20C18 48 16 46 16 44V32C13 31 12 28 13 26C14 24 16 24 18 24Z" fill="#ffffff"/>
-                        <path d="M42 26H56L54 36H44L42 26Z" fill="#2b1f4d"/>
-                        <path d="M45 26C45 22 53 22 53 26" stroke="#2b1f4d" stroke-width="2" fill="none"/>
-                    </svg>
-                </div>
-                <span>السلة</span>
-                <span id="cartCount">(0)</span>
-            </button>
-        </div>
-    </header>
-
-    <section class="hero-banner">
-        <div class="hero-card">
-            <div class="hero-text">
-                <h1 id="heroTitle">سعادة أليفك تبدأ من زازو 🐾</h1>
-                <p id="heroDesc">أفضل الأغذية الصحية والمستلزمات الفاخرة بأعلى جودة وتوصيل مباشر لباب منزلك.</p>
-                <a href="#catalog" class="hero-btn">تسوق العروض</a>
-            </div>
-            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=500&q=80" class="hero-img" alt="Zazou Hero">
-        </div>
-    </section>
-
-    <main class="container">
-        
-        <div class="calc-box">
-            <h3><i class="fa-solid fa-calculator" style="color: var(--accent-orange);"></i> حاسبة التغذية اليومية 🥣</h3>
-            <div class="calc-inputs">
-                <div style="flex: 1; min-width: 140px;">
-                    <label style="font-size: 11px; font-weight: 600;">وزن الحيوان (كجم):</label>
-                    <input type="number" id="petWeightInput" class="form-control" placeholder="مثال: 4" min="1">
-                </div>
-                <button class="btn-quick" onclick="calculateFeeding()" style="background: var(--primary-color); color: white; padding: 10px 16px;">احسب</button>
-            </div>
-            <div class="calc-result" id="calcResult"></div>
-        </div>
-
-        <div class="categories" id="catalog">
-            <button class="cat-chip active" data-category="all">الكل</button>
-            <button class="cat-chip" data-category="cats">القطط 🐱</button>
-            <button class="cat-chip" data-category="dogs">الكلاب 🐶</button>
-            <button class="cat-chip" data-category="birds">الطيور 🦜</button>
-            <button class="cat-chip" data-category="toys">ألعاب ومستلزمات 🎾</button>
-        </div>
-
-        <h2 class="section-title">أحدث المنتجات المختارة</h2>
-        
-        <div class="products-grid" id="productsGrid">
-            
-            <div class="product-card" data-category="cats" data-title="طعام مجفف بريميوم للقطط">
-                <span class="badge">تخفيض</span>
-                <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80" class="product-img" alt="طعام قطط">
-                <div class="product-info">
-                    <div class="product-title">طعام مجفف صحي متكامل للقطط (2 كجم)</div>
-                    <div class="price-row">
-                        <span class="price">350 ج.م</span>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-add" onclick="addToCart('طعام مجفف بريميوم للقطط', 350, 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80')">
-                            <i class="fa-solid fa-cart-plus"></i> للسلة
-                        </button>
-                        <button class="btn-quick" onclick="quickOrder('طعام مجفف بريميوم للقطط', 350)">شراء سريع</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="cats toys" data-title="شجرة وخدّاشة تسلق للقطط">
-                <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=500&q=80" class="product-img" alt="خدّاشة">
-                <div class="product-info">
-                    <div class="product-title">شجرة تسلق وخدّاشة مريحة للقطط</div>
-                    <div class="price-row">
-                        <span class="price">520 ج.م</span>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-add" onclick="addToCart('شجرة وخدّاشة تسلق', 520, 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=500&q=80')">
-                            <i class="fa-solid fa-cart-plus"></i> للسلة
-                        </button>
-                        <button class="btn-quick" onclick="quickOrder('شجرة وخدّاشة تسلق', 520)">شراء سريع</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="dogs" data-title="طوق جلدي متين للكلاب">
-                <span class="badge">جديد</span>
-                <img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=500&q=80" class="product-img" alt="طوق كلاب">
-                <div class="product-info">
-                    <div class="product-title">طوق للكلاب من الجلد الطبيعي المريح</div>
-                    <div class="price-row">
-                        <span class="price">180 ج.م</span>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-add" onclick="addToCart('طوق جلدي متين للكلاب', 180, 'https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=500&q=80')">
-                            <i class="fa-solid fa-cart-plus"></i> للسلة
-                        </button>
-                        <button class="btn-quick" onclick="quickOrder('طوق جلدي متين للكلاب', 180)">شراء سريع</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="birds" data-title="قفص عصافير مجهز بملحقات">
-                <img src="https://images.unsplash.com/photo-1520808663317-647b476a81b9?auto=format&fit=crop&w=500&q=80" class="product-img" alt="قفص طيور">
-                <div class="product-info">
-                    <div class="product-title">قفص طيور حديث واسع مع مأكلية</div>
-                    <div class="price-row">
-                        <span class="price">410 ج.م</span>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-add" onclick="addToCart('قفص عصافير مجهز', 410, 'https://images.unsplash.com/photo-1520808663317-647b476a81b9?auto=format&fit=crop&w=500&q=80')">
-                            <i class="fa-solid fa-cart-plus"></i> للسلة
-                        </button>
-                        <button class="btn-quick" onclick="quickOrder('قفص عصافير مجهز', 410)">شراء سريع</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="reviews-section">
-            <h3 style="color: var(--primary-color); font-size: 16px; margin-bottom: 12px;">
-                <i class="fa-solid fa-star" style="color: var(--accent-yellow);"></i> تقييم المنتجات والموقع
-            </h3>
-
-            <div class="discount-banner-review">
-                <i class="fa-solid fa-gift"></i>
-                <span>قَيّم منتجاتنا أو موقعنا الآن واحصل فوراً على <strong>خصم 10%</strong> على طلبك القادم! 🎁</span>
-            </div>
-
-            <div class="add-review-box">
-                <h4>شاركنا رأيك أو أرفق صوراً/فيديوهات لأليفك أثناء استخدام المنتج 📸📹</h4>
-                <div class="form-group">
-                    <textarea id="reviewText" class="form-control" rows="3" placeholder="اكتب تقييمك للمنتج أو الموقع هنا..."></textarea>
-                </div>
-                
-                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                    <label class="media-upload-label">
-                        <i class="fa-solid fa-camera"></i> إرفاق صور / فيديو
-                        <input type="file" id="reviewMediaInput" accept="image/*,video/*" multiple style="display: none;" onchange="handleMediaUpload(event)">
-                    </label>
-                    <button class="btn-quick" style="background: var(--accent-orange); color: white; padding: 9px 18px;" onclick="submitReview()">نشر التقييم والحصول على الخصم 🚀</button>
-                </div>
-
-                <div class="media-preview-container" id="mediaPreviewContainer"></div>
-            </div>
-
-            <div class="reviews-grid" id="reviewsGrid"></div>
-        </div>
-
-        <!-- قسم السوشيال ميديا -->
-        <div class="social-media-section">
-            <h3><i class="fa-solid fa-share-nodes" style="color: var(--accent-orange);"></i> السوشيال ميديا</h3>
-            <p>تابعنا على منصاتنا للتعرف على أحدث العروض والمنتجات والتحديثات اليومية 🐾</p>
-            
-            <div class="social-links-grid">
-                <a href="https://www.instagram.com/zazou.pets.shop?stkn=anJzdDdicjlhenJh&utm_source=qr" target="_blank" class="social-card instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>انستغرام</span>
-                </a>
-                <a href="https://www.facebook.com/share/1DC44cxrxR/?mibextid=wwXIfr" target="_blank" class="social-card facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <span>فيسبوك</span>
-                </a>
-                <a href="https://www.tiktok.com/@zazou.pets.shop?_r=1&_t=ZS-99eSQqhsVVM" target="_blank" class="social-card tiktok">
-                    <i class="fa-brands fa-tiktok"></i>
-                    <span>تيك توك</span>
-                </a>
-            </div>
-        </div>
-
-    </main>
-
-    <div class="cart-drawer-overlay" id="cartOverlay"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h4 style="display: flex; align-items: center; gap: 8px;">
-                <div class="dog-cart-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 24C18 20 22 16 28 16C32 16 35 18 37 20L44 18C46 17.5 48 19 48 21V25C50 25 52 27 52 29V32C50 33 48 32 48 32V44C48 46 46 48 44 48H38V40H26V48H20C18 48 16 46 16 44V32C13 31 12 28 13 26C14 24 16 24 18 24Z" fill="#ffffff"/>
-                        <path d="M42 26H56L54 36H44L42 26Z" fill="#2b1f4d"/>
-                        <path d="M45 26C45 22 53 22 53 26" stroke="#2b1f4d" stroke-width="2" fill="none"/>
-                    </svg>
-                </div>
-                سلة المشتريات
-            </h4>
-            <button class="close-cart" id="closeCartBtn">&times;</button>
-        </div>
-        
-        <div class="free-shipping-bar" id="freeShippingBar">
-            أضف بـ <span id="shippingDiff">500</span> ج.م للحصول على 🚚 شحن مجاني!
-        </div>
-
-        <div class="cart-body" id="cartItems">
-            <p style="text-align: center; color: var(--text-muted); margin-top: 50px;">السلة فارغة حالياً 🐾</p>
-        </div>
-
-        <div class="cart-footer">
-            <div class="total-row">
-                <span>الإجمالي:</span>
-                <span id="cartTotal">0 ج.م</span>
-            </div>
-            <button class="checkout-btn" onclick="openPaymentModal()">إتمام الشراء والدفع 💳</button>
-        </div>
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Search Bar -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+      <button>بحث 🔍</button>
     </div>
 
-    <div class="payment-modal-overlay" id="paymentModal">
-        <div class="payment-card">
-            <button class="close-modal" onclick="closePaymentModal()">&times;</button>
-            <h3 style="color: var(--primary-color); font-size: 16px; margin-bottom: 4px;">طريقة الدفع 🛒</h3>
-            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">اختر الطريقة المناسبة لك:</p>
-
-            <div class="payment-methods">
-                <div class="pay-method selected" onclick="selectPayMethod('card', this)">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <span>بطاقة فيزا</span>
-                </div>
-                <div class="pay-method" onclick="selectPayMethod('wallet', this)">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <span>محفظة كاش</span>
-                </div>
-                <div class="pay-method" onclick="selectPayMethod('cod', this)">
-                    <i class="fa-solid fa-money-bill-wave"></i>
-                    <span>عند الاستلام</span>
-                </div>
-            </div>
-
-            <div id="cardPayForm" class="payment-details-box">
-                <div class="form-group">
-                    <label>رقم البطاقة</label>
-                    <input type="text" class="form-control" placeholder="**** **** **** ****" maxlength="19">
-                </div>
-                <div class="form-row">
-                    <div class="form-group" style="flex: 1;">
-                        <label>التاريخ</label>
-                        <input type="text" class="form-control" placeholder="MM/YY">
-                    </div>
-                    <div class="form-group" style="flex: 1;">
-                        <label>CVC</label>
-                        <input type="password" class="form-control" placeholder="***" maxlength="3">
-                    </div>
-                </div>
-            </div>
-
-            <div id="walletPayForm" class="payment-details-box" style="display: none;">
-                <div class="form-group">
-                    <label>اختر المحفظة</label>
-                    <select class="form-control">
-                        <option>فودافون كاش</option>
-                        <option>إنستا باي</option>
-                        <option>أورنج كاش</option>
-                        <option>اتصالات كاش</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>رقم المحفظة</label>
-                    <input type="tel" class="form-control" placeholder="01xxxxxxxxx">
-                </div>
-            </div>
-
-            <div id="codPayForm" class="payment-details-box" style="display: none;">
-                <p style="font-size: 12px; color: var(--text-dark); text-align: center; margin: 8px 0;">
-                    الدفع نقداً للمندوب عند استلامك شحنتك 🏠
-                </p>
-            </div>
-
-            <button class="btn-primary-block" onclick="processPayment()">تأكيد والدفع (<span id="payAmountBtn">0</span> ج.م)</button>
-        </div>
+    <!-- Category Tabs -->
+    <div class="filter-tabs">
+      <button class="cat-chip active" data-pet="all">الكل 🐾</button>
+      <button class="cat-chip" data-pet="cat">قطط 🐱</button>
+      <button class="cat-chip" data-pet="dog">كلاب 🐶</button>
+      <button class="cat-chip" data-pet="bird">عصافير 🐦</button>
+      <button class="cat-chip" data-category="toys">ألعاب 🎾</button>
+      <button class="cat-chip" data-category="accessories">إكسسوارات 🎀</button>
+      <button class="cat-chip" data-category="medical">مستلزمات طبية 🩺</button>
+      <button class="cat-chip" data-category="litter">رمل 🪐</button>
     </div>
 
-    <a href="https://wa.me/201000000000" class="whatsapp-float" target="_blank" title="دعم الواتساب">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <div class="toast" id="toast">
-        <i class="fa-solid fa-circle-check" style="color: var(--accent-yellow);"></i>
-        <span id="toastMsg">تمت الإضافة للسلة!</span>
+    <!-- Feeding Calculator Card -->
+    <div class="calc-card">
+      <h4><i class="fa-solid fa-calculator"></i> حاسبة التغذية الذكية لأليفك 🐾</h4>
+      <div class="calc-inputs">
+        <input type="number" id="petWeightInput" placeholder="وزن الأليف (كجم)..." min="0.1" step="0.1">
+        <button onclick="calculateFeeding()">احسب 🥣</button>
+      </div>
+      <div class="calc-result" id="calcResult"></div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 جميع الحقوق محفوظة لـ زازو - zazou 🐾</p>
-    </footer>
+    <!-- Products Grid -->
+    <h3 style="margin-bottom: 10px;" id="products-section">المنتجات المميزة</h3>
+    <div class="product-grid" id="productGrid">
+      
+      <!-- منتجات القطط -->
+      <div class="product-card" data-pet="cat" data-category="toys" data-title="كرة ألعاب تفاعلية للقطط">
+        <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400" class="product-img" alt="كرة ألعاب">
+        <div class="product-title">كرة ألعاب تفاعلية للقطط 🐱</div>
+        <div class="product-price">120 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('كرة ألعاب تفاعلية للقطط', 120, 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400')">إضافة للسلة 🛒</button>
+      </div>
 
-    <script>
-        let customerData = { petType: '', name: '', phone: '', address: '', petName: '', petAge: '' };
-        let selectedPayMethod = 'card';
-        let cart = [];
-        let uploadedMediaFiles = [];
-        const FREE_SHIPPING_LIMIT = 500;
+      <div class="product-card" data-pet="cat" data-category="litter" data-title="رمل كربون معطر للقطط 5 لتر">
+        <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400" class="product-img" alt="رمل معطر">
+        <div class="product-title">رمل كربون معطر للقطط 5 لتر 🐱</div>
+        <div class="product-price">190 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('رمل كربون معطر 5 لتر', 190, 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400')">إضافة للسلة 🛒</button>
+      </div>
 
-        function selectPetType(type, element) {
-            customerData.petType = type;
-            document.querySelectorAll('.pet-option-card').forEach(c => c.classList.remove('selected'));
-            element.classList.add('selected');
-            document.getElementById('btnNextStep').style.display = 'block';
-        }
+      <!-- منتجات الكلاب -->
+      <div class="product-card" data-pet="dog" data-category="toys" data-title="عظمة مطاطية للكلاب">
+        <img src="https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400" class="product-img" alt="ألعاب كلاب">
+        <div class="product-title">عظمة تسنين مطاطية للكلاب 🐶</div>
+        <div class="product-price">150 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('عظمة تسنين مطاطية للكلاب', 150, 'https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400')">إضافة للسلة 🛒</button>
+      </div>
 
-        function goToUserInfoStep() {
-            if (!customerData.petType) {
-                alert('الرجاء اختيار نوع الأليف أولاً!');
-                return;
-            }
-            document.getElementById('stepPetSelection').style.display = 'none';
-            document.getElementById('stepUserInfo').style.display = 'block';
-        }
+      <div class="product-card" data-pet="dog" data-category="accessories" data-title="طوق جلد مقوى للكلاب">
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400" class="product-img" alt="طوق كلاب">
+        <div class="product-title">طوق جلد مقوى بحبل سحب للكلاب 🐶</div>
+        <div class="product-price">210 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('طوق جلد مقوى للكلاب', 210, 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400')">إضافة للسلة 🛒</button>
+      </div>
 
-        function completeRegistration() {
-            const name = document.getElementById('custName').value.trim();
-            const phone = document.getElementById('custPhone').value.trim();
-            const address = document.getElementById('custAddress').value.trim();
-            const petAge = document.getElementById('petAge').value.trim();
+      <!-- منتجات العصافير -->
+      <div class="product-card" data-pet="bird" data-category="toys" data-title="أرجوحة خشبية ملونة للعصافير">
+        <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400" class="product-img" alt="مستلزمات عصافير">
+        <div class="product-title">أرجوحة خشبية ملونة مع جرس للعصافير 🐦</div>
+        <div class="product-price">85 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('أرجوحة خشبية للعصافير', 85, 'https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400')">إضافة للسلة 🛒</button>
+      </div>
 
-            if (!name || !phone || !address || !petAge) {
-                alert('يرجى ملء جميع الحقول المطلوبة!');
-                return;
-            }
+      <div class="product-card" data-pet="bird" data-category="accessories" data-title="طعام حبوب مشكلة للعصافير 1 كجم">
+        <img src="https://images.unsplash.com/photo-1522858547137-f1dcec554f55?w=400" class="product-img" alt="طعام عصافير">
+        <div class="product-title">طعام حبوب مشكلة ومغذي للعصافير 1 كجم 🐦</div>
+        <div class="product-price">95 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('طعام حبوب عصافير 1 كجم', 95, 'https://images.unsplash.com/photo-1522858547137-f1dcec554f55?w=400')">إضافة للسلة 🛒</button>
+      </div>
 
-            customerData.name = name;
-            customerData.phone = phone;
-            customerData.address = address;
-            customerData.petName = document.getElementById('petName').value.trim() || 'أليفك';
-            customerData.petAge = petAge;
+    </div>
 
-            try {
-                localStorage.setItem('zazou_user', JSON.stringify(customerData));
-            } catch(e) {
-                console.log('بيئة التجربة لا تدعم الحفظ الدائم، سيتم الاستمرار مؤقتاً');
-            }
+    <!-- Review Section -->
+    <div class="review-card">
+      <h4>⭐ رأيك يهمنا في زازو</h4>
+      <div class="emoji-display" id="emojiDisplay">😊</div>
+      <div class="stars" id="starRating">
+        <span onclick="setRating(1)">★</span>
+        <span onclick="setRating(2)">★</span>
+        <span onclick="setRating(3)" class="active">★</span>
+        <span onclick="setRating(4)">★</span>
+        <span onclick="setRating(5)">★</span>
+      </div>
+      <textarea id="reviewText" placeholder="اكتب رأيك هنا للحصول على الخصم..."></textarea>
+      
+      <label class="media-upload-label">
+        <i class="fa-solid fa-camera"></i> إرفاق صورة/فيديو
+        <input type="file" id="mediaInput" accept="image/*,video/*" multiple style="display:none;" onchange="handleMediaUpload(event)">
+      </label>
+      <div class="media-preview-container" id="mediaPreviewContainer"></div>
 
-            document.getElementById('welcomeModal').classList.add('hidden');
-            applyUserCustomization();
-            showToast(`أهلاً بك يا ${customerData.name}! 🐾`);
-        }
+      <button class="btn-review" onclick="submitReview()">إرسال التقييم 🚀</button>
 
-        function applyUserCustomization() {
-            let savedData = null;
-            try {
-                savedData = localStorage.getItem('zazou_user');
-            } catch(e) {}
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
 
-            if (savedData) {
-                customerData = JSON.parse(savedData);
-                document.getElementById('welcomeModal').classList.add('hidden');
+    <!-- Social Media Section -->
+    <div class="social-media-section">
+      <h3><i class="fa-solid fa-heart" style="color: var(--accent-orange);"></i> تواصل معنا وتابع جديدنا</h3>
+      <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">انضم إلى عائلة زازو على منصات التواصل الاجتماعي!</p>
+      <div class="social-links-grid">
+        <a href="https://instagram.com" target="_blank" class="social-card instagram">
+          <i class="fa-brands fa-instagram"></i>
+          <span>إنستغرام</span>
+        </a>
+        <a href="https://facebook.com" target="_blank" class="social-card facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+          <span>فيسبوك</span>
+        </a>
+        <a href="https://tiktok.com" target="_blank" class="social-card tiktok">
+          <i class="fa-brands fa-tiktok"></i>
+          <span>تيك توك</span>
+        </a>
+      </div>
+    </div>
 
-                const greeting = document.getElementById('userGreeting');
-                const greetingText = document.getElementById('greetingText');
-                if (greeting && greetingText) {
-                    greeting.style.display = 'flex';
-                    greetingText.innerText = `أهلاً ${customerData.name} (${customerData.petName})`;
-                }
+  </div>
 
-                const heroTitle = document.getElementById('heroTitle');
-                if (heroTitle) {
-                    heroTitle.innerText = `أهلاً بك وبـ "${customerData.petName}" في زازو - zazou 🐾`;
-                }
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>سلة التسوق 🛒</h3>
+      <button class="close-cart" onclick="closeCart()">&times;</button>
+    </div>
 
-                if (customerData.petType && customerData.petType !== 'other') {
-                    filterProducts(customerData.petType);
-                }
-            } else if (customerData.name) {
-                document.getElementById('welcomeModal').classList.add('hidden');
+    <div class="cart-body" id="cartItemsContainer">
+      <p style="text-align: center; color: var(--text-muted); margin-top: 30px;">السلة فارغة حالياً</p>
+    </div>
+    <div class="cart-footer">
+      <div class="total-row">
+        <span>الإجمالي:</span>
+        <span id="cartTotalPrice">0 ج.م</span>
+      </div>
+      <button class="checkout-btn" onclick="openPaymentModal()">إتمام الطلب تم إنشاء مستند بحجم الكود المحدث بالكامل وحفظه باسم:
 
-                const greeting = document.getElementById('userGreeting');
-                const greetingText = document.getElementById('greetingText');
-                if (greeting && greetingText) {
-                    greeting.style.display = 'flex';
-                    greetingText.innerText = `أهلاً ${customerData.name} (${customerData.petName})`;
-                }
+[كود متجر زازو zazou المطور - واجهة ترحيبية بالعميل والأليف](https://docs.google.com/document/d/193Sw9UrlIs_XAVI5HF36_ybt8YBtR2Kg3VmPOQ8WANU/edit?usp=drive_web)
 
-                const heroTitle = document.getElementById('heroTitle');
-                if (heroTitle) {
-                    heroTitle.innerText = `أهلاً بك وبـ "${customerData.petName}" في زازو - zazou 🐾`;
-                }
+[file-tag: drive-uploaded-file-193Sw9UrlIs_XAVI5HF36_ybt8YBtR2Kg3VmPOQ8WANU]
 
-                if (customerData.petType && customerData.petType !== 'other') {
-                    filterProducts(customerData.petType);
-                }
-            }
-        }
+---
 
-        const cartDrawer = document.getElementById('cartDrawer');
-        const cartOverlay = document.getElementById('cartOverlay');
-        const openCartBtn = document.getElementById('openCartBtn');
-        const closeCartBtn = document.getElementById('closeCartBtn');
+### 💻 الكود الكامل المحدث (يمكنك أيضاً نسخه مباشرة من هنا):
 
-        function toggleCart() {
-            cartDrawer.classList.toggle('open');
-            cartOverlay.style.display = cartDrawer.classList.contains('open') ? 'block' : 'none';
-        }
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زازو zazou | متجر الحيوانات الأليفة</title>
+  
+  <!-- FontAwesome للأيقونات -->
+  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
 
-        if (openCartBtn) openCartBtn.addEventListener('click', toggleCart);
-        if (closeCartBtn) closeCartBtn.addEventListener('click', toggleCart);
-        if (cartOverlay) cartOverlay.addEventListener('click', toggleCart);
+  <style>
+    :root {
+      --primary-color: #2e1d52;
+      --primary-light: #4a2e80;
+      --accent-orange: #ff6b2b;
+      --accent-green: #2cd46f;
+      --bg-color: #f4f5f9;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --text-muted: #777777;
+    }
 
-        function addToCart(title, price, img) {
-            cart.push({ title, price, img });
-            updateCartUI();
-            showToast(`تمت إضافة "${title}" للسلة`);
-        }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        function quickOrder(title, price) {
-            if (!customerData.name) {
-                alert('يرجى إكمال بيانات التسجيل أولاً!');
-                document.getElementById('welcomeModal').classList.remove('hidden');
-                return;
-            }
-            alert(`⚡ تم إرسال طلبك المباشر لمنتج "${title}" بمبلغ ${price} ج.م!\nالتوصيل إلى: ${customerData.address}`);
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      padding-bottom: 40px;
+    }
 
-        function updateCartUI() {
-            const cartCount = document.getElementById('cartCount');
-            const cartItems = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
-            const freeShippingBar = document.getElementById('freeShippingBar');
+    /* Top Banner */
+    .top-banner {
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+      color: #fff;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: bold;
+    }
 
-            if (cartCount) cartCount.innerText = `(${cart.length})`;
+    /* Header Navbar */
+    header {
+      background-color: var(--card-bg);
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-            let total = 0;
-            if (cart.length === 0) {
-                if (cartItems) cartItems.innerHTML = `<p style="text-align: center; color: var(--text-muted); margin-top: 50px;">السلة فارغة حالياً 🐾</p>`;
-                if (cartTotal) cartTotal.innerText = `0 ج.م`;
-                if (freeShippingBar) freeShippingBar.innerHTML = `أضف بـ <span>${FREE_SHIPPING_LIMIT}</span> ج.م للحصول على 🚚 شحن مجاني!`;
-                return;
-            }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-            if (cartItems) {
-                cartItems.innerHTML = cart.map((item) => {
-                    total += item.price;
-                    return `
-                        <div class="cart-item">
-                            <img src="${item.img}" alt="${item.title}">
-                            <div class="cart-item-info">
-                                <h5>${item.title}</h5>
-                                <span>${item.price} ج.م</span>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
 
-            if (cartTotal) cartTotal.innerText = `${total} ج.م`;
-            const payAmountBtn = document.getElementById('payAmountBtn');
-            if (payAmountBtn) payAmountBtn.innerText = total;
+    .header-brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary-color);
+    }
 
-            if (freeShippingBar) {
-                if (total >= FREE_SHIPPING_LIMIT) {
-                    freeShippingBar.innerHTML = `🎉 مبروك! حصلت على 🚚 <strong>شحن مجاني</strong>!`;
-                } else {
-                    const diff = FREE_SHIPPING_LIMIT - total;
-                    freeShippingBar.innerHTML = `أضف بـ <span>${diff}</span> ج.م للحصول على 🚚 شحن مجاني!`;
-                }
-            }
-        }
+    .header-brand-title span {
+      color: var(--accent-orange);
+      margin-right: 4px;
+    }
 
-        function handleMediaUpload(event) {
-            const files = event.target.files;
-            const container = document.getElementById('mediaPreviewContainer');
-            if (!container) return;
-            
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                const url = URL.createObjectURL(file);
-                const isVideo = file.type.startsWith('video/');
-                
-                uploadedMediaFiles.push({ url, isVideo });
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-                if (isVideo) {
-                    const videoEl = document.createElement('video');
-                    videoEl.src = url;
-                    videoEl.className = 'media-preview-video';
-                    videoEl.controls = true;
-                    container.appendChild(videoEl);
-                } else {
-                    const imgEl = document.createElement('img');
-                    imgEl.src = url;
-                    imgEl.className = 'media-preview-item';
-                    container.appendChild(imgEl);
-                }
-            }
-        }
+    .user-btn {
+      background: #f0f0f0;
+      color: var(--primary-color);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
 
-        function submitReview() {
-            const textEl = document.getElementById('reviewText');
-            const text = textEl ? textEl.value.trim() : '';
-            if (!text && uploadedMediaFiles.length === 0) {
-                alert('يرجى كتابة رأيك أو إرفاق صور/فيديو أولاً!');
-                return;
-            }
+    .cart-btn {
+      background-color: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
 
-            const reviewsGrid = document.getElementById('reviewsGrid');
-            if (!reviewsGrid) return;
+    /* Hero Section - الواجهة الترحيبية الجديدة لـ زازو والعميل والأليف */
+    .hero-section {
+      text-align: center;
+      padding: 25px 15px 15px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-            const authorName = customerData.name ? `${customerData.name} و"${customerData.petName}"` : 'عميل زازو';
-            
-            let mediaHTML = '';
-            if (uploadedMediaFiles.length > 0) {
-                mediaHTML = `<div class="review-media">` + 
-                    uploadedMediaFiles.map(m => m.isVideo ? `<video src="${m.url}" controls></video>` : `<img src="${m.url}">`).join('') + 
-                `</div>`;
-            }
+    .hero-avatar-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-            const newReview = document.createElement('div');
-            newReview.className = 'review-card';
-            newReview.innerHTML = `
-                <h5>${authorName} 🐾</h5>
-                <p>"${text}"</p>
-                ${mediaHTML}
-            `;
+    .hero-avatar-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,43,0.3) 0%, rgba(46,29,82,0) 70%);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
 
-            reviewsGrid.prepend(newReview);
-            
-            if (textEl) textEl.value = '';
-            const previewContainer = document.getElementById('mediaPreviewContainer');
-            if (previewContainer) previewContainer.innerHTML = '';
-            uploadedMediaFiles = [];
-            
-            alert('🎉 شكراً لتقييمك! كود الخصم 10% الخاص بك هو: ZAZOU10 (استخدمه عند الدفع)');
-            showToast('تم نشر تقييمك وحصولك على خصم 10% 🎁');
-        }
+    .hero-avatar-svg {
+      width: 130px;
+      height: 130px;
+      z-index: 2;
+      filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.15));
+      animation: floatAnimation 3.5s infinite ease-in-out;
+    }
 
-        function openPaymentModal() {
-            if (cart.length === 0) {
-                alert('سلتك فارغة حالياً!');
-                return;
-            }
-            toggleCart();
-            const paymentModal = document.getElementById('paymentModal');
-            if (paymentModal) paymentModal.classList.add('active');
-        }
+    @keyframes floatAnimation {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
 
-        function closePaymentModal() {
-            const paymentModal = document.getElementById('paymentModal');
-            if (paymentModal) paymentModal.classList.remove('active');
-        }
+    @keyframes pulseGlow {
+      0% { transform: scale(0.95); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.6; }
+    }
 
-        function selectPayMethod(method, element) {
-            selectedPayMethod = method;
-            document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
-            element.classList.add('selected');
+    /* تصميم بطاقة الترحيب */
+    .welcome-card {
+      background: linear-gradient(135deg, rgba(46,29,82,0.06), rgba(255,107,43,0.08));
+      border: 1px dashed rgba(255,107,43,0.4);
+      padding: 12px 20px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+      display: inline-block;
+      max-width: 90%;
+    }
 
-            const cardForm = document.getElementById('cardPayForm');
-            const walletForm = document.getElementById('walletPayForm');
-            const codForm = document.getElementById('codPayForm');
+    .welcome-card h2 {
+      font-size: 18px;
+      color: var(--primary-color);
+      font-weight: 800;
+    }
 
-            if (cardForm) cardForm.style.display = method === 'card' ? 'block' : 'none';
-            if (walletForm) walletForm.style.display = method === 'wallet' ? 'block' : 'none';
-            if (codForm) codForm.style.display = method === 'cod' ? 'block' : 'none';
-        }
+    .welcome-card h2 span.user-highlight {
+      color: var(--accent-orange);
+    }
 
-        function processPayment() {
-            closePaymentModal();
-            cart = [];
-            updateCartUI();
-            alert(`🎉 تم تأكيد طلبك بنجاح يا ${customerData.name || 'عميلنا العزيز'}!\nسيتم التوصيل إلى: (${customerData.address}).`);
-        }
+    .welcome-card h2 span.pet-highlight {
+      color: #9b59b6;
+    }
 
-        function calculateFeeding() {
-            const weightInput = document.getElementById('petWeightInput');
-            const weight = weightInput ? parseFloat(weightInput.value) : 0;
-            const resDiv = document.getElementById('calcResult');
-            if (!resDiv) return;
+    .hero-title {
+      font-size: 26px;
+      font-weight: 900;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-            if (!weight || weight <= 0) {
-                alert('يرجى إدخال وزن صحيح!');
-                return;
-            }
+    .hero-title .ar { color: var(--primary-color); }
+    .hero-title .en { color: var(--accent-orange); font-family: Arial, sans-serif; }
 
-            const dailyGrams = weight * 25;
-            const bagDays = Math.round(2000 / dailyGrams);
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
 
-            resDiv.style.display = 'block';
-            resDiv.innerHTML = `🥣 يحتاج أليفك تقريباً <strong>${dailyGrams} جرام</strong>/يومياً.<br>📦 الكيس 2 كجم يكفي حوالي <strong>${bagDays} يوماً</strong>.`;
-        }
+    /* Sidebar Drawer */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 200; display: none;
+    }
 
-        const catButtons = document.querySelectorAll('.cat-chip');
-        const productCards = document.querySelectorAll('.product-card');
+    .sidebar {
+      position: fixed;
+      top: 0; right: -280px; width: 280px; height: 100%;
+      background: #fff; z-index: 201;
+      transition: right 0.3s ease;
+      padding: 20px; display: flex;
+      flex-direction: column; gap: 15px;
+    }
 
-        function filterProducts(filter) {
-            catButtons.forEach(b => {
-                if (b.getAttribute('data-category') === filter) {
-                    b.classList.add('active');
-                } else {
-                    b.classList.remove('active');
-                }
-            });
+    .sidebar.open { right: 0; }
+    .sidebar-overlay.open { display: block; }
 
-            productCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+    .sidebar-header {
+      display: flex; justify-content: space-between;
+      align-items: center; border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
 
-        catButtons.forEach(btn => {
-            btn.addEventListener('click', () => filterProducts(btn.getAttribute('data-category')));
-        });
+    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
 
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const term = e.target.value.toLowerCase();
-                productCards.forEach(card => {
-                    const title = card.getAttribute('data-title').toLowerCase();
-                    card.style.display = title.includes(term) ? 'flex' : 'none';
-                });
-            });
-        }
+    .menu-item {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #333; font-weight: 600;
+      padding: 10px; border-radius: 8px; background: #f9f9f9;
+      cursor: pointer;
+    }
 
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toastMsg');
-            if (!toast || !toastMsg) return;
-            toastMsg.innerText = message;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-        }
+    /* Container & Search */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 15px 15px 15px;
+    }
 
-        window.onload = function() {
-            applyUserCustomization();
-        };
-    </script>
-</body>
-</html>
+    .search-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    .search-box button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Filters / Categories */
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+
+    .cat-chip {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      white-space: nowrap;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cat-chip.active {
+      background: var(--primary-color);
+      color: #fff;
+      border-color: var(--primary-color);
+    }
+
+    /* Products Grid */
+    .product-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .product-title { font-weight: bold; font-size: 15px; margin-bottom: 5px; }
+    .product-price { color: var(--primary-color); font-weight: 800; font-size: 16px; margin-bottom: 10px; }
+    
+    .btn-add-cart {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* Feeding Calculator Card */
+    .calc-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 25px;
+    }
+
+    .calc-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .calc-inputs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .calc-inputs input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .calc-inputs button {
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .calc-result {
+      background: #f8f9fa;
+      border-right: 3px solid var(--accent-orange);
+      padding: 10px;
+      font-size: 13px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    /* Dynamic Review System */
+    .review-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      font-size: 28px;
+      cursor: pointer;
+      margin: 10px 0;
+      color: #ccc;
+    }
+
+    .stars span.active { color: #ffb400; }
+
+    .emoji-display {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .review-card textarea {
+      width: 100%;
+      height: 70px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 10px;
+      resize: none;
+    }
+
+    .media-upload-label {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .media-preview-container {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
+
+    .media-preview-item {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .btn-review {
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .reviews-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+      text-align: right;
+    }
+
+    /* Cart Drawer & Controls */
+    .cart-drawer-overlay, .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 300;
+      display: none;
+    }
+
+    .modal-overlay.active { display: flex; justify-content: center; align-items: center; }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0; left: -320px;
+      width: 320px; height: 100%;
+      background: #fff;
+      z-index: 301;
+      transition: left 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open { left: 0; }
+
+    .cart-header {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .cart-item-info { flex: 1; }
+    .cart-item-info h5 { font-size: 13px; margin-bottom: 4px; }
+    .cart-item-info span { font-size: 12px; color: var(--primary-color); font-weight: bold; }
+
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      background: #e0e0e0;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .qty-btn:hover {
+      background: var(--accent-orange);
+      color: #fff;
+    }
+
+    .qty-num {
+      font-size: 13px;
+      font-weight: bold;
+      min-width: 16px;
+      text-align: center;
+    }
+
+    .delete-item-btn {
+      background: none;
+      border: none;
+      color: #ff4d4d;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 4px;
+    }
+
+    .cart-footer {
+      padding: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Modal Dialog Styling (Profile & Payment) */
+    .modal-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 420px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+      text-align: right;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: var(--primary-color);
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .pay-method {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .pay-method.selected {
+      border-color: var(--accent-orange);
+      background: #fff8f5;
+    }
+
+    .btn-primary-block {
+      width: 100%;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Social Section */
+    .social-media-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-top: 20px;
+    }
+
+    .social-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 12px;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .social-card.instagram { background: linear-gradient(45deg, #f09433, #bc1888); }
+    .social-card.facebook { background: #1877f2; }
+    .social-card.tiktok { background: #000; }
+
+    /* Float WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25d366;
+      color: #fff;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 150;
+      text-decoration: none;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: -60px;
+      right: 50%;
+      transform: translateX(50%);
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: bottom 0.3s ease;
+      z-index: 400;
+      white-space: nowrap;
+    }
+
+    .toast.show { bottom: 20px; }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-banner">🎉 خصم خاص لكل التقييمات! | زازو zazou</div>
+
+  <!-- Header Navbar -->
+  <header>
+    <div class="header-right">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="header-brand-title">
+        زازو <span>zazou</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <!-- زر البروفايل -->
+      <button class="user-btn" onclick="openProfileModal()">
+        <i class="fa-solid fa-user"></i> <span id="headerUserName">حسابي</span>
+      </button>
+      <button class="cart-btn" id="openCartBtn">🛒 <span id="cartCount">(0)</span></button>
+    </div>
+  </header>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>القائمة الرئيسية</h3>
+      <button class="close-btn" onclick="toggleSidebar()">✕</button>
+    </div>
+    <div class="menu-item" onclick="toggleSidebar(); openProfileModal();">
+      <i class="fa-solid fa-id-card"></i> الملف الشخصي والتعديل
+    </div>
+    <a href="tel:01010166348" class="menu-item"><i class="fa-solid fa-phone"></i> اتصل بنا: 01010166348</a>
+    <a href="[https://maps.app.goo.gl/UUd6hgwb76kfR1jy7?g_st=ai](https://maps.app.goo.gl/UUd6hgwb76kfR1jy7?g_st=ai)" target="_blank" class="menu-item"><i class="fa-solid fa-location-dot"></i> موقع الفرع (Google Maps)</a>
+    <hr>
+    <h4>تابعنا على السوشيال ميديا:</h4>
+    <a href="[https://instagram.com](https://instagram.com)" target="_blank" class="menu-item"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="[https://facebook.com](https://facebook.com)" target="_blank" class="menu-item"><i class="fa-brands fa-facebook"></i> Facebook</a>
+    <a href="[https://tiktok.com](https://tiktok.com)" target="_blank" class="menu-item"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+  </div>
+
+  <!-- Hero Section: الواجهة الترحيبية المخصصة -->
+  <section class="hero-section">
+    <div class="hero-avatar-wrapper">
+      <div class="hero-avatar-glow"></div>
+      <!-- رسم شخصية زازو العصفور المتجهي -->
+      <svg class="hero-avatar-svg" viewBox="0 0 200 200" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
+        <circle cx="100" cy="100" r="95" fill="#fcfcfc" stroke="#d4af37" stroke-width="4"/>
+        <circle cx="100" cy="100" r="85" fill="#e8eaed"/>
+        <circle cx="100" cy="100" r="72" fill="#d0d4dc"/>
+        <path d="M 60 100 Q 60 50 100 50 Q 140 50 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="#6c5ce7"/>
+        <circle cx="85" cy="85" r="18" fill="#ffffff" stroke="#2d3436" stroke-width="2"/>
+        <circle cx="88" cy="85" r="7" fill="#000000"/>
+        <circle cx="90" cy="83" r="2.5" fill="#ffffff"/>
+        <path d="M 68 68 Q 85 55 102 70" stroke="#000000" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M 98 75 Q 160 70 145 105 Q 110 115 95 98 Z" fill="#ff6b2b" stroke="#d35400" stroke-width="2"/>
+        <path d="M 95 98 Q 130 110 105 120 Z" fill="#e67e22"/>
+        <path d="M 70 128 L 100 175 L 130 128 Q 100 145 70 128 Z" fill="#2e1d52"/>
+        <path d="M 85 130 L 100 160 L 115 130 Z" fill="#4a2e80"/>
+        <polygon points="90,165 100,172 110,165 100,178" fill="#f1c40f"/>
+      </svg>
+    </div>
+
+    <!-- بطاقة الترحيب المخصصة بالعميل وأليفه -->
+    <div class="welcome-card" id="welcomeCard">
+      <h2>أهلاً بك <span class="user-highlight" id="welcomeUserName">يا صديقنا</span> 👋، و <span class="pet-highlight" id="welcomePetName">أليفك العزيز</span> 🐾</h2>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="ar">زازو</span>
+      <span class="en">zazou</span>
+    </h1>
+    <p class="hero-subtitle">عالم أليفك السعيد بين يديك 🐾</p>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Search Bar -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+      <button>بحث 🔍</button>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="filter-tabs">
+      <button class="cat-chip active" data-pet="all">الكل 🐾</button>
+      <button class="cat-chip" data-pet="cat">قطط 🐱</button>
+      <button class="cat-chip" data-pet="dog">كلاب 🐶</button>
+      <button class="cat-chip" data-pet="bird">عصافير 🐦</button>
+      <button class="cat-chip" data-category="toys">ألعاب 🎾</button>
+      <button class="cat-chip" data-category="accessories">إكسسوارات 🎀</button>
+      <button class="cat-chip" data-category="medical">مستلزمات طبية 🩺</button>
+      <button class="cat-chip" data-category="litter">رمل 🪐</button>
+    </div>
+
+    <!-- Feeding Calculator Card -->
+    <div class="calc-card">
+      <h4><i class="fa-solid fa-calculator"></i> حاسبة التغذية الذكية لأليفك 🐾</h4>
+      <div class="calc-inputs">
+        <input type="number" id="petWeightInput" placeholder="وزن الأليف (كجم)..." min="0.1" step="0.1">
+        <button onclick="calculateFeeding()">احسب 🥣</button>
+      </div>
+      <div class="calc-result" id="calcResult"></div>
+    </div>
+
+    <!-- Products Grid -->
+    <h3 style="margin-bottom: 10px;" id="products-section">المنتجات المميزة</h3>
+    <div class="product-grid" id="productGrid">
+      
+      <!-- منتجات القطط -->
+      <div class="product-card" data-pet="cat" data-category="toys" data-title="كرة ألعاب تفاعلية للقطط">
+        <img src="[https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400](https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400)" class="product-img" alt="كرة ألعاب">
+        <div class="product-title">كرة ألعاب تفاعلية للقطط 🐱</div>
+        <div class="product-price">120 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('كرة ألعاب تفاعلية للقطط', 120, '[https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400](https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400)')
