@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>زازو - zazou | متجر الحيوانات الأليفة</title>
   
-  <!-- FontAwesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -35,7 +34,6 @@
       padding-bottom: 50px;
     }
 
-    /* Top Announcement Bar */
     .top-banner {
       background: #231242;
       color: #fff;
@@ -45,7 +43,6 @@
       font-weight: bold;
     }
 
-    /* Header Navbar - Mobile Responsive */
     header {
       background-color: var(--card-bg);
       padding: 10px 12px;
@@ -77,15 +74,22 @@
     .brand-logo {
       display: flex;
       align-items: center;
-      gap: 4px;
-      font-size: 17px;
+      gap: 6px;
+      font-size: 16px;
       font-weight: 800;
     }
 
+    .header-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #ddd;
+    }
+
     .brand-logo .ar { color: var(--primary-color); }
-    .brand-logo .sep { color: #ccc; margin: 0 1px; }
+    .brand-logo .dash { color: #888; margin: 0 2px; }
     .brand-logo .en { color: var(--accent-orange); font-family: Arial, sans-serif; }
-    .brand-logo .paw { color: var(--primary-color); font-size: 15px; }
 
     .header-center-search {
       flex: 1;
@@ -148,14 +152,12 @@
       white-space: nowrap;
     }
 
-    /* Container */
     .container {
       max-width: 900px;
       margin: 0 auto;
       padding: 12px 10px;
     }
 
-    /* Hero Banner Mobile Optimized */
     .hero-card {
       background: var(--primary-color);
       border-radius: 16px;
@@ -204,7 +206,7 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background: #3a86ff;
+      background: #fff;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -219,7 +221,6 @@
       object-fit: cover;
     }
 
-    /* Feeding Calculator Widget */
     .calc-card {
       background: #fff;
       border-radius: 14px;
@@ -288,7 +289,6 @@
       display: none;
     }
 
-    /* Filter Chips Bar Horizontal Touch Scroll */
     .filter-tabs {
       display: flex;
       gap: 6px;
@@ -299,9 +299,7 @@
       scrollbar-width: none;
     }
 
-    .filter-tabs::-webkit-scrollbar {
-      display: none;
-    }
+    .filter-tabs::-webkit-scrollbar { display: none; }
 
     .cat-chip {
       background: #fff;
@@ -322,7 +320,6 @@
       border-color: var(--primary-color);
     }
 
-    /* Products Grid Mobile 2 Columns */
     .section-title {
       font-size: 16px;
       font-weight: 800;
@@ -405,7 +402,6 @@
       width: 100%;
     }
 
-    /* Review Section Mobile */
     .review-card {
       background: #fff;
       border-radius: 14px;
@@ -484,12 +480,56 @@
     .reviews-grid {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 10px;
+      margin-top: 15px;
       text-align: right;
     }
 
-    /* Social Section */
+    .review-post-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .review-post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .review-post-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .review-post-stars {
+      color: #ffb400;
+      font-size: 12px;
+    }
+
+    .review-post-text {
+      font-size: 11px;
+      color: #444;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .review-post-media {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+
+    .review-post-media img {
+      width: 55px;
+      height: 55px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
     .social-media-section {
       background: #fff;
       border-radius: 14px;
@@ -522,7 +562,6 @@
     .social-card.facebook { background: #1877f2; }
     .social-card.tiktok { background: #000; }
 
-    /* Cart Drawer & Modals */
     .cart-drawer-overlay, .modal-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -622,7 +661,6 @@
       border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;
     }
 
-    /* Sidebar Drawer (الثلاث شرط) */
     .sidebar-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -657,7 +695,6 @@
       cursor: pointer; font-size: 12px;
     }
 
-    /* Floating WhatsApp Button */
     .whatsapp-float {
       position: fixed; bottom: 16px; left: 16px;
       background: #25d366; color: #fff; width: 46px; height: 46px;
@@ -666,7 +703,6 @@
       z-index: 150; text-decoration: none;
     }
 
-    /* Toast Notification */
     .toast {
       position: fixed; bottom: -60px; right: 50%;
       transform: translateX(50%); background: #333; color: #fff;
@@ -692,18 +728,17 @@
 </head>
 <body>
 
-  <!-- Top Banner -->
   <div class="top-banner">خصم 20% بمناسبة افتتاح المتجر! استخدم كود: ZAZOU20</div>
 
-  <!-- Header Mobile Responsive -->
   <header>
     <div class="header-right">
       <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      
       <div class="brand-logo">
+        <img src="logo.png.jpg" alt="Zazou Logo" class="header-logo-img">
         <span class="ar">زازو</span>
-        <span class="sep">|</span>
+        <span class="dash">-</span>
         <span class="en">zazou</span>
-        <span class="paw">🐾</span>
       </div>
     </div>
 
@@ -724,7 +759,6 @@
     </div>
   </header>
 
-  <!-- Sidebar Menu (الثلاث شرط) -->
   <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -734,19 +768,21 @@
     <div class="menu-item" onclick="toggleSidebar(); openProfileModal();">
       <i class="fa-solid fa-id-card"></i> الملف الشخصي والتعديل
     </div>
+    <div class="menu-item" onclick="toggleSidebar(); scrollToReviews();">
+      <i class="fa-solid fa-star" style="color: #ffb400;"></i> تقييمات عملائنا ⭐
+    </div>
     <a href="tel:01010166348" class="menu-item"><i class="fa-solid fa-phone"></i> اتصل بنا: 01010166348</a>
     <a href="https://maps.app.goo.gl/UUd6hgwb76kfR1jy7?g_st=ai" target="_blank" class="menu-item"><i class="fa-solid fa-location-dot"></i> موقع الفرع (Google Maps)</a>
     <hr>
     <h4>تابعنا على السوشيال ميديا:</h4>
-    <a href="https://instagram.com" target="_blank" class="menu-item"><i class="fa-brands fa-instagram"></i> Instagram</a>
-    <a href="https://facebook.com" target="_blank" class="menu-item"><i class="fa-brands fa-facebook"></i> Facebook</a>
-    <a href="https://tiktok.com" target="_blank" class="menu-item"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+    <!-- لينكات السوشيال ميديا في القائمة الجانبية -->
+    <a href="https://www.instagram.com/zazou.pets.shop?stkn=anJzdDdicjlhenJh&utm_source=qr" target="_blank" class="menu-item"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="https://www.facebook.com/share/1DC44cxrxR/?mibextid=wwXIfr" target="_blank" class="menu-item"><i class="fa-brands fa-facebook"></i> Facebook</a>
+    <a href="https://www.tiktok.com/@zazou.pets.shop?_r=1&_t=ZS-99eSQqhsVVM" target="_blank" class="menu-item"><i class="fa-brands fa-tiktok"></i> TikTok</a>
   </div>
 
-  <!-- Main Container -->
   <div class="container">
 
-    <!-- Hero Banner Mobile Optimized -->
     <div class="hero-card">
       <div class="hero-content">
         <h1 id="heroWelcomeTitle">أهلاً بك وبـ "بطاطس" في زازو - zazou</h1>
@@ -754,11 +790,10 @@
         <button class="btn-hero" onclick="scrollToProducts()">تسوق العروض</button>
       </div>
       <div class="hero-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500" alt="Dog image">
+        <img src="logo.png.jpg" alt="Zazou Hero Logo">
       </div>
     </div>
 
-    <!-- Feeding Calculator -->
     <div class="calc-card">
       <div class="calc-header">
         <i class="fa-solid fa-calculator" style="color: var(--accent-orange);"></i>
@@ -774,7 +809,6 @@
       <div class="calc-result" id="calcResult"></div>
     </div>
 
-    <!-- Category Filter Tabs Horizontal Touch Scroll -->
     <div class="filter-tabs">
       <button class="cat-chip active" data-filter="all">الكل 🐾</button>
       <button class="cat-chip" data-filter="cat">القطط 🐱</button>
@@ -787,7 +821,6 @@
       <button class="cat-chip" data-filter="other">أخرى 📦</button>
     </div>
 
-    <!-- Products Grid Mobile 2 Columns -->
     <div class="section-title" id="productsSection">أحدث المنتجات المختارة</div>
     <div class="product-grid" id="productGrid">
       
@@ -842,9 +875,8 @@
 
     </div>
 
-    <!-- Review Section -->
-    <div class="review-card">
-      <h4>⭐ رأيك يهمنا في زازو</h4>
+    <div class="review-card" id="reviewsSection">
+      <h4 style="color: var(--primary-color); font-size: 16px;">⭐ تقييمات عملائنا</h4>
       <div class="emoji-display" id="emojiDisplay">😊</div>
       <div class="stars" id="starRating">
         <span onclick="setRating(1)">★</span>
@@ -853,7 +885,7 @@
         <span onclick="setRating(4)">★</span>
         <span onclick="setRating(5)">★</span>
       </div>
-      <textarea id="reviewText" placeholder="اكتب رأيك هنا للحصول على الخصم..."></textarea>
+      <textarea id="reviewText" placeholder="قيم موقعنا واحصل على خصم لأوردرك القادم"></textarea>
       
       <label class="media-upload-label">
         <i class="fa-solid fa-camera"></i> إرفاق صورة/فيديو
@@ -863,23 +895,31 @@
 
       <button class="btn-review" onclick="submitReview()">إرسال التقييم 🚀</button>
 
-      <div class="reviews-grid" id="reviewsGrid"></div>
+      <div class="reviews-grid" id="reviewsGrid">
+        <div class="review-post-card">
+          <div class="review-post-header">
+            <span class="review-post-title">أحمد أنور (بطاطس) 🐾</span>
+            <span class="review-post-stars">★★★★★</span>
+          </div>
+          <p class="review-post-text">متجر ممتاز جداً والتوصيل كان سريع، والأكل عجب بطاطس جداً! شكراً زازو ❤️</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Social Media Section -->
+    <!-- Social Media Section Mapped Links -->
     <div class="social-media-section">
       <h3><i class="fa-solid fa-heart" style="color: var(--accent-orange);"></i> تواصل معنا وتابع جديدنا</h3>
       <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">انضم إلى عائلة زازو على منصات التواصل الاجتماعي!</p>
       <div class="social-links-grid">
-        <a href="https://instagram.com" target="_blank" class="social-card instagram">
+        <a href="https://www.instagram.com/zazou.pets.shop?stkn=anJzdDdicjlhenJh&utm_source=qr" target="_blank" class="social-card instagram">
           <i class="fa-brands fa-instagram"></i>
           <span>إنستغرام</span>
         </a>
-        <a href="https://facebook.com" target="_blank" class="social-card facebook">
+        <a href="https://www.facebook.com/share/1DC44cxrxR/?mibextid=wwXIfr" target="_blank" class="social-card facebook">
           <i class="fa-brands fa-facebook-f"></i>
           <span>فيسبوك</span>
         </a>
-        <a href="https://tiktok.com" target="_blank" class="social-card tiktok">
+        <a href="https://www.tiktok.com/@zazou.pets.shop?_r=1&_t=ZS-99eSQqhsVVM" target="_blank" class="social-card tiktok">
           <i class="fa-brands fa-tiktok"></i>
           <span>تيك توك</span>
         </a>
@@ -888,7 +928,6 @@
 
   </div>
 
-  <!-- Cart Drawer -->
   <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCart()"></div>
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
@@ -907,7 +946,6 @@
     </div>
   </div>
 
-  <!-- Profile Modal -->
   <div class="modal-overlay" id="profileModal">
     <div class="modal-card">
       <button class="close-modal" onclick="closeProfileModal()">&times;</button>
@@ -934,7 +972,6 @@
     </div>
   </div>
 
-  <!-- Payment Modal -->
   <div class="modal-overlay" id="paymentModal">
     <div class="modal-card">
       <button class="close-modal" onclick="closePaymentModal()">&times;</button>
@@ -944,12 +981,10 @@
     </div>
   </div>
 
-  <!-- Float WhatsApp -->
   <a href="https://wa.me/201010166348" target="_blank" class="whatsapp-float" title="تواصل معنا">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- Toast Notification -->
   <div class="toast" id="toast">
     <i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i>
     <span id="toastMsg">تمت العملية بنجاح!</span>
@@ -959,7 +994,6 @@
     <p>&copy; 2026 جميع الحقوق محفوظة لـ متجر زازو zazou 🐾</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
     let cart = [];
     let currentRating = 3;
@@ -979,7 +1013,6 @@
       updateProfileUI();
     });
 
-    // Sidebar
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('open');
       document.querySelector('.sidebar-overlay').classList.toggle('open');
@@ -1025,7 +1058,10 @@
       document.getElementById('productsSection').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Cart Drawer
+    function scrollToReviews() {
+      document.getElementById('reviewsSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
     const cartDrawer = document.getElementById('cartDrawer');
     const cartOverlay = document.getElementById('cartOverlay');
 
@@ -1099,7 +1135,6 @@
       totalEl.innerText = `${totalPrice} ج.م`;
     }
 
-    // Feeding Calculator
     function calculateFeeding() {
       const weight = parseFloat(document.getElementById('petWeightInput').value);
       const resBox = document.getElementById('calcResult');
@@ -1113,7 +1148,6 @@
       resBox.innerHTML = `الكمية اليومية الموصى بها لـ <strong>${userProfile.petName || 'أليفك'}</strong> هي حوالي <strong>${grams} جرام</strong> موزعة على وجبتين. 🥣`;
     }
 
-    // Advanced Category Filtering System
     document.querySelectorAll('.cat-chip').forEach(chip => {
       chip.addEventListener('click', function() {
         document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
@@ -1140,7 +1174,6 @@
       });
     });
 
-    // Rating System
     function setRating(rating) {
       currentRating = rating;
       const emojis = ['😡', '😐', '😊', '😍', '🤩'];
@@ -1176,17 +1209,33 @@
       }
       const grid = document.getElementById('reviewsGrid');
       const card = document.createElement('div');
-      card.className = 'product-card';
-      card.style.padding = '8px';
+      card.className = 'review-post-card';
       
       let starsStr = '★'.repeat(currentRating);
       let client = userProfile.name || 'يوسف عمرو';
       let pet = userProfile.petName ? ` (${userProfile.petName})` : '';
 
+      let mediaHtml = '';
+      if (uploadedFiles.length > 0) {
+        mediaHtml = `<div class="review-post-media">`;
+        uploadedFiles.forEach(file => {
+          const url = URL.createObjectURL(file);
+          if (file.type.startsWith('image/')) {
+            mediaHtml += `<img src="${url}" alt="Review image">`;
+          }
+        });
+        mediaHtml += `</div>`;
+      }
+
       card.innerHTML = `
-        <h5 style="color:var(--primary-color); font-size:12px;">${client}${pet} 🐾 <span style="color:#ffb400;">${starsStr}</span></h5>
-        <p style="font-size:11px; margin-top:4px;">${text}</p>
+        <div class="review-post-header">
+          <span class="review-post-title">${client}${pet} 🐾</span>
+          <span class="review-post-stars">${starsStr}</span>
+        </div>
+        <p class="review-post-text">${text}</p>
+        ${mediaHtml}
       `;
+
       grid.prepend(card);
       document.getElementById('reviewText').value = '';
       document.getElementById('mediaPreviewContainer').innerHTML = '';
@@ -1194,7 +1243,6 @@
       showToast('شكراً لتقييمك! تم تطبيق خصم 10% على طلبك القادم 🎁');
     }
 
-    // Payment Modal
     function openPaymentModal() {
       if (cart.length === 0) {
         alert('السلة فارغة!');
