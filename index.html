@@ -116,7 +116,7 @@
       gap: 5px;
     }
 
-    /* Hero Section - الواجهة الترحيبية الجديدة لـ زازو والعميل والأليف */
+    /* Hero Section - زازو في منتصف الموقع مع الأنيميشن */
     .hero-section {
       text-align: center;
       padding: 25px 15px 15px 15px;
@@ -136,6 +136,7 @@
       align-items: center;
     }
 
+    /* تأثير الهالة الضوئية خلف اللوجو */
     .hero-avatar-glow {
       position: absolute;
       width: 100%;
@@ -145,6 +146,7 @@
       animation: pulseGlow 3s infinite ease-in-out;
     }
 
+    /* أنيميشن الطفو والتحرك لـ زازو */
     .hero-avatar-svg {
       width: 130px;
       height: 130px;
@@ -155,7 +157,7 @@
 
     @keyframes floatAnimation {
       0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(2deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
 
@@ -165,35 +167,9 @@
       100% { transform: scale(0.95); opacity: 0.6; }
     }
 
-    /* تصميم بطاقة الترحيب */
-    .welcome-card {
-      background: linear-gradient(135deg, rgba(46,29,82,0.06), rgba(255,107,43,0.08));
-      border: 1px dashed rgba(255,107,43,0.4);
-      padding: 12px 20px;
-      border-radius: 16px;
-      margin-bottom: 10px;
-      display: inline-block;
-      max-width: 90%;
-    }
-
-    .welcome-card h2 {
-      font-size: 18px;
-      color: var(--primary-color);
-      font-weight: 800;
-    }
-
-    .welcome-card h2 span.user-highlight {
-      color: var(--accent-orange);
-    }
-
-    .welcome-card h2 span.pet-highlight {
-      color: #9b59b6;
-    }
-
     .hero-title {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 900;
-      margin-top: 5px;
       margin-bottom: 5px;
       display: flex;
       align-items: center;
@@ -205,7 +181,7 @@
     .hero-title .en { color: var(--accent-orange); font-family: Arial, sans-serif; }
 
     .hero-subtitle {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-muted);
       margin-bottom: 15px;
     }
@@ -757,7 +733,7 @@
 
   <div class="top-banner">🎉 خصم خاص لكل التقييمات! | زازو zazou</div>
 
-  <!-- Header Navbar -->
+  <!-- Header -->
   <header>
     <div class="header-right">
       <button class="menu-btn" onclick="toggleSidebar()">☰</button>
@@ -766,7 +742,7 @@
       </div>
     </div>
     <div class="header-actions">
-      <!-- زر البروفايل -->
+      <!-- زر بروفايل العميل -->
       <button class="user-btn" onclick="openProfileModal()">
         <i class="fa-solid fa-user"></i> <span id="headerUserName">حسابي</span>
       </button>
@@ -793,11 +769,11 @@
     <a href="https://tiktok.com" target="_blank" class="menu-item"><i class="fa-brands fa-tiktok"></i> TikTok</a>
   </div>
 
-  <!-- Hero Section: الواجهة الترحيبية المخصصة -->
+  <!-- Hero Section: اللوجو المتحرك في منتصف الصفحة -->
   <section class="hero-section">
     <div class="hero-avatar-wrapper">
       <div class="hero-avatar-glow"></div>
-      <!-- رسم شخصية زازو العصفور المتجهي -->
+      <!-- رسم شخصية زازو العصفور برسم متجه إلكتروني ملون وعالي الدقة -->
       <svg class="hero-avatar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <circle cx="100" cy="100" r="95" fill="#fcfcfc" stroke="#d4af37" stroke-width="4"/>
         <circle cx="100" cy="100" r="85" fill="#e8eaed"/>
@@ -813,11 +789,6 @@
         <path d="M 85 130 L 100 160 L 115 130 Z" fill="#4a2e80"/>
         <polygon points="90,165 100,172 110,165 100,178" fill="#f1c40f"/>
       </svg>
-    </div>
-
-    <!-- بطاقة الترحيب المخصصة بالعميل وأليفه -->
-    <div class="welcome-card" id="welcomeCard">
-      <h2>أهلاً بك <span class="user-highlight" id="welcomeUserName">يا صديقنا</span> 👋، و <span class="pet-highlight" id="welcomePetName">أليفك العزيز</span> 🐾</h2>
     </div>
 
     <h1 class="hero-title">
@@ -971,884 +942,374 @@
         <span>الإجمالي:</span>
         <span id="cartTotalPrice">0 ج.م</span>
       </div>
-      <button class="checkout-btn" onclick="openPaymentModal()">إتمام الطلب تم إنشاء مستند بحجم الكود المحدث بالكامل وحفظه باسم:
-
-[كود متجر زازو zazou المطور - واجهة ترحيبية بالعميل والأليف](https://docs.google.com/document/d/193Sw9UrlIs_XAVI5HF36_ybt8YBtR2Kg3VmPOQ8WANU/edit?usp=drive_web)
-
-[file-tag: drive-uploaded-file-193Sw9UrlIs_XAVI5HF36_ybt8YBtR2Kg3VmPOQ8WANU]
-
----
-
-### 💻 الكود الكامل المحدث (يمكنك أيضاً نسخه مباشرة من هنا):
-
-```html
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>زازو zazou | متجر الحيوانات الأليفة</title>
-  
-  <!-- FontAwesome للأيقونات -->
-  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
-
-  <style>
-    :root {
-      --primary-color: #2e1d52;
-      --primary-light: #4a2e80;
-      --accent-orange: #ff6b2b;
-      --accent-green: #2cd46f;
-      --bg-color: #f4f5f9;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --text-muted: #777777;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-      padding-bottom: 40px;
-    }
-
-    /* Top Banner */
-    .top-banner {
-      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-      color: #fff;
-      text-align: center;
-      padding: 8px 12px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    /* Header Navbar */
-    header {
-      background-color: var(--card-bg);
-      padding: 10px 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .menu-btn {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--primary-color);
-    }
-
-    .header-brand-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--primary-color);
-    }
-
-    .header-brand-title span {
-      color: var(--accent-orange);
-      margin-right: 4px;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .user-btn {
-      background: #f0f0f0;
-      color: var(--primary-color);
-      border: none;
-      padding: 8px 12px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 13px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .cart-btn {
-      background-color: var(--accent-orange);
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 13px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    /* Hero Section - الواجهة الترحيبية الجديدة لـ زازو والعميل والأليف */
-    .hero-section {
-      text-align: center;
-      padding: 25px 15px 15px 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-avatar-wrapper {
-      position: relative;
-      width: 140px;
-      height: 140px;
-      margin-bottom: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-avatar-glow {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,107,43,0.3) 0%, rgba(46,29,82,0) 70%);
-      animation: pulseGlow 3s infinite ease-in-out;
-    }
-
-    .hero-avatar-svg {
-      width: 130px;
-      height: 130px;
-      z-index: 2;
-      filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.15));
-      animation: floatAnimation 3.5s infinite ease-in-out;
-    }
-
-    @keyframes floatAnimation {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
-    }
-
-    @keyframes pulseGlow {
-      0% { transform: scale(0.95); opacity: 0.6; }
-      50% { transform: scale(1.15); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.6; }
-    }
-
-    /* تصميم بطاقة الترحيب */
-    .welcome-card {
-      background: linear-gradient(135deg, rgba(46,29,82,0.06), rgba(255,107,43,0.08));
-      border: 1px dashed rgba(255,107,43,0.4);
-      padding: 12px 20px;
-      border-radius: 16px;
-      margin-bottom: 10px;
-      display: inline-block;
-      max-width: 90%;
-    }
-
-    .welcome-card h2 {
-      font-size: 18px;
-      color: var(--primary-color);
-      font-weight: 800;
-    }
-
-    .welcome-card h2 span.user-highlight {
-      color: var(--accent-orange);
-    }
-
-    .welcome-card h2 span.pet-highlight {
-      color: #9b59b6;
-    }
-
-    .hero-title {
-      font-size: 26px;
-      font-weight: 900;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .hero-title .ar { color: var(--primary-color); }
-    .hero-title .en { color: var(--accent-orange); font-family: Arial, sans-serif; }
-
-    .hero-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 15px;
-    }
-
-    /* Sidebar Drawer */
-    .sidebar-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 200; display: none;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0; right: -280px; width: 280px; height: 100%;
-      background: #fff; z-index: 201;
-      transition: right 0.3s ease;
-      padding: 20px; display: flex;
-      flex-direction: column; gap: 15px;
-    }
-
-    .sidebar.open { right: 0; }
-    .sidebar-overlay.open { display: block; }
-
-    .sidebar-header {
-      display: flex; justify-content: space-between;
-      align-items: center; border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
-
-    .menu-item {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: #333; font-weight: 600;
-      padding: 10px; border-radius: 8px; background: #f9f9f9;
-      cursor: pointer;
-    }
-
-    /* Container & Search */
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 15px 15px 15px;
-    }
-
-    .search-box {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 15px;
-    }
-
-    .search-box input {
-      flex: 1;
-      padding: 10px 14px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      outline: none;
-    }
-
-    .search-box button {
-      background: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    /* Filters / Categories */
-    .filter-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 15px;
-      overflow-x: auto;
-      padding-bottom: 5px;
-    }
-
-    .cat-chip {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      white-space: nowrap;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .cat-chip.active {
-      background: var(--primary-color);
-      color: #fff;
-      border-color: var(--primary-color);
-    }
-
-    /* Products Grid */
-    .product-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 25px;
-    }
-
-    .product-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .product-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .product-title { font-weight: bold; font-size: 15px; margin-bottom: 5px; }
-    .product-price { color: var(--primary-color); font-weight: 800; font-size: 16px; margin-bottom: 10px; }
-    
-    .btn-add-cart {
-      background: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    /* Feeding Calculator Card */
-    .calc-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      margin-bottom: 25px;
-    }
-
-    .calc-card h4 {
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
-
-    .calc-inputs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .calc-inputs input {
-      flex: 1;
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .calc-inputs button {
-      background: var(--accent-orange);
-      color: #fff;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .calc-result {
-      background: #f8f9fa;
-      border-right: 3px solid var(--accent-orange);
-      padding: 10px;
-      font-size: 13px;
-      border-radius: 4px;
-      display: none;
-    }
-
-    /* Dynamic Review System */
-    .review-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .stars {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      font-size: 28px;
-      cursor: pointer;
-      margin: 10px 0;
-      color: #ccc;
-    }
-
-    .stars span.active { color: #ffb400; }
-
-    .emoji-display {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .review-card textarea {
-      width: 100%;
-      height: 70px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 8px;
-      margin-bottom: 10px;
-      resize: none;
-    }
-
-    .media-upload-label {
-      display: inline-block;
-      padding: 6px 12px;
-      background: #f0f0f0;
-      border-radius: 6px;
-      font-size: 12px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    .media-preview-container {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      margin-bottom: 10px;
-    }
-
-    .media-preview-item {
-      width: 60px;
-      height: 60px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    .btn-review {
-      background: var(--accent-orange);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .reviews-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 15px;
-      text-align: right;
-    }
-
-    /* Cart Drawer & Controls */
-    .cart-drawer-overlay, .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 300;
-      display: none;
-    }
-
-    .modal-overlay.active { display: flex; justify-content: center; align-items: center; }
-
-    .cart-drawer {
-      position: fixed;
-      top: 0; left: -320px;
-      width: 320px; height: 100%;
-      background: #fff;
-      z-index: 301;
-      transition: left 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cart-drawer.open { left: 0; }
-
-    .cart-header {
-      padding: 15px;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .cart-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 15px;
-    }
-
-    .cart-item {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 12px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .cart-item img {
-      width: 50px;
-      height: 50px;
-      border-radius: 6px;
-      object-fit: cover;
-    }
-
-    .cart-item-info { flex: 1; }
-    .cart-item-info h5 { font-size: 13px; margin-bottom: 4px; }
-    .cart-item-info span { font-size: 12px; color: var(--primary-color); font-weight: bold; }
-
-    .cart-item-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .qty-btn {
-      width: 24px;
-      height: 24px;
-      background: #e0e0e0;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .qty-btn:hover {
-      background: var(--accent-orange);
-      color: #fff;
-    }
-
-    .qty-num {
-      font-size: 13px;
-      font-weight: bold;
-      min-width: 16px;
-      text-align: center;
-    }
-
-    .delete-item-btn {
-      background: none;
-      border: none;
-      color: #ff4d4d;
-      cursor: pointer;
-      font-size: 14px;
-      margin-right: 4px;
-    }
-
-    .cart-footer {
-      padding: 15px;
-      border-top: 1px solid #eee;
-    }
-
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
-
-    .checkout-btn {
-      width: 100%;
-      background: var(--accent-orange);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Modal Dialog Styling (Profile & Payment) */
-    .modal-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 420px;
-      position: relative;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 10px; left: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
-      text-align: right;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 4px;
-      color: var(--primary-color);
-    }
-
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .payment-methods {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 15px 0;
-    }
-
-    .pay-method {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .pay-method.selected {
-      border-color: var(--accent-orange);
-      background: #fff8f5;
-    }
-
-    .btn-primary-block {
-      width: 100%;
-      background: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Social Section */
-    .social-media-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      margin-top: 20px;
-    }
-
-    .social-links-grid {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 12px;
-    }
-
-    .social-card {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 12px;
-      border-radius: 20px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .social-card.instagram { background: linear-gradient(45deg, #f09433, #bc1888); }
-    .social-card.facebook { background: #1877f2; }
-    .social-card.tiktok { background: #000; }
-
-    /* Float WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #25d366;
-      color: #fff;
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 26px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 150;
-      text-decoration: none;
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: -60px;
-      right: 50%;
-      transform: translateX(50%);
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: bottom 0.3s ease;
-      z-index: 400;
-      white-space: nowrap;
-    }
-
-    .toast.show { bottom: 20px; }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="top-banner">🎉 خصم خاص لكل التقييمات! | زازو zazou</div>
-
-  <!-- Header Navbar -->
-  <header>
-    <div class="header-right">
-      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-      <div class="header-brand-title">
-        زازو <span>zazou</span>
-      </div>
+      <button class="checkout-btn" onclick="openPaymentModal()">إتمام الطلب 💳</button>
     </div>
-    <div class="header-actions">
-      <!-- زر البروفايل -->
-      <button class="user-btn" onclick="openProfileModal()">
-        <i class="fa-solid fa-user"></i> <span id="headerUserName">حسابي</span>
-      </button>
-      <button class="cart-btn" id="openCartBtn">🛒 <span id="cartCount">(0)</span></button>
-    </div>
-  </header>
-
-  <!-- Sidebar Menu -->
-  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <h3>القائمة الرئيسية</h3>
-      <button class="close-btn" onclick="toggleSidebar()">✕</button>
-    </div>
-    <div class="menu-item" onclick="toggleSidebar(); openProfileModal();">
-      <i class="fa-solid fa-id-card"></i> الملف الشخصي والتعديل
-    </div>
-    <a href="tel:01010166348" class="menu-item"><i class="fa-solid fa-phone"></i> اتصل بنا: 01010166348</a>
-    <a href="[https://maps.app.goo.gl/UUd6hgwb76kfR1jy7?g_st=ai](https://maps.app.goo.gl/UUd6hgwb76kfR1jy7?g_st=ai)" target="_blank" class="menu-item"><i class="fa-solid fa-location-dot"></i> موقع الفرع (Google Maps)</a>
-    <hr>
-    <h4>تابعنا على السوشيال ميديا:</h4>
-    <a href="[https://instagram.com](https://instagram.com)" target="_blank" class="menu-item"><i class="fa-brands fa-instagram"></i> Instagram</a>
-    <a href="[https://facebook.com](https://facebook.com)" target="_blank" class="menu-item"><i class="fa-brands fa-facebook"></i> Facebook</a>
-    <a href="[https://tiktok.com](https://tiktok.com)" target="_blank" class="menu-item"><i class="fa-brands fa-tiktok"></i> TikTok</a>
   </div>
 
-  <!-- Hero Section: الواجهة الترحيبية المخصصة -->
-  <section class="hero-section">
-    <div class="hero-avatar-wrapper">
-      <div class="hero-avatar-glow"></div>
-      <!-- رسم شخصية زازو العصفور المتجهي -->
-      <svg class="hero-avatar-svg" viewBox="0 0 200 200" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
-        <circle cx="100" cy="100" r="95" fill="#fcfcfc" stroke="#d4af37" stroke-width="4"/>
-        <circle cx="100" cy="100" r="85" fill="#e8eaed"/>
-        <circle cx="100" cy="100" r="72" fill="#d0d4dc"/>
-        <path d="M 60 100 Q 60 50 100 50 Q 140 50 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="#6c5ce7"/>
-        <circle cx="85" cy="85" r="18" fill="#ffffff" stroke="#2d3436" stroke-width="2"/>
-        <circle cx="88" cy="85" r="7" fill="#000000"/>
-        <circle cx="90" cy="83" r="2.5" fill="#ffffff"/>
-        <path d="M 68 68 Q 85 55 102 70" stroke="#000000" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <path d="M 98 75 Q 160 70 145 105 Q 110 115 95 98 Z" fill="#ff6b2b" stroke="#d35400" stroke-width="2"/>
-        <path d="M 95 98 Q 130 110 105 120 Z" fill="#e67e22"/>
-        <path d="M 70 128 L 100 175 L 130 128 Q 100 145 70 128 Z" fill="#2e1d52"/>
-        <path d="M 85 130 L 100 160 L 115 130 Z" fill="#4a2e80"/>
-        <polygon points="90,165 100,172 110,165 100,178" fill="#f1c40f"/>
-      </svg>
+  <!-- Profile Modal (بروفايل العميل) -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal-card">
+      <button class="close-modal" onclick="closeProfileModal()">&times;</button>
+      <h3 style="color: var(--primary-color); font-size: 18px; margin-bottom: 12px;"><i class="fa-solid fa-user-gear"></i> الملف الشخصي للعميل</h3>
+      <form id="profileForm" onsubmit="saveProfile(event)">
+        <div class="form-group">
+          <label>الاسم بالكامل:</label>
+          <input type="text" id="profName" placeholder="أدخل اسمك..." required>
+        </div>
+        <div class="form-group">
+          <label>رقم الهاتف / الواتساب:</label>
+          <input type="tel" id="profPhone" placeholder="010XXXXXXXX" required>
+        </div>
+        <div class="form-group">
+          <label>المدينة / المحافظة:</label>
+          <input type="text" id="profCity" placeholder="القاهرة، الجيزة..." required>
+        </div>
+        <div class="form-group">
+          <label>العنوان التفصيلي للشحن:</label>
+          <textarea id="profAddress" rows="2" placeholder="اسم الشارع، رقم العمارة، الشقة..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary-block" style="background: var(--accent-orange); margin-top: 10px;">حفظ البيانات 💾</button>
+      </form>
     </div>
+  </div>
 
-    <!-- بطاقة الترحيب المخصصة بالعميل وأليفه -->
-    <div class="welcome-card" id="welcomeCard">
-      <h2>أهلاً بك <span class="user-highlight" id="welcomeUserName">يا صديقنا</span> 👋، و <span class="pet-highlight" id="welcomePetName">أليفك العزيز</span> 🐾</h2>
-    </div>
-
-    <h1 class="hero-title">
-      <span class="ar">زازو</span>
-      <span class="en">zazou</span>
-    </h1>
-    <p class="hero-subtitle">عالم أليفك السعيد بين يديك 🐾</p>
-  </section>
-
-  <!-- Main Container -->
-  <div class="container">
-    
-    <!-- Search Bar -->
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
-      <button>بحث 🔍</button>
-    </div>
-
-    <!-- Category Tabs -->
-    <div class="filter-tabs">
-      <button class="cat-chip active" data-pet="all">الكل 🐾</button>
-      <button class="cat-chip" data-pet="cat">قطط 🐱</button>
-      <button class="cat-chip" data-pet="dog">كلاب 🐶</button>
-      <button class="cat-chip" data-pet="bird">عصافير 🐦</button>
-      <button class="cat-chip" data-category="toys">ألعاب 🎾</button>
-      <button class="cat-chip" data-category="accessories">إكسسوارات 🎀</button>
-      <button class="cat-chip" data-category="medical">مستلزمات طبية 🩺</button>
-      <button class="cat-chip" data-category="litter">رمل 🪐</button>
-    </div>
-
-    <!-- Feeding Calculator Card -->
-    <div class="calc-card">
-      <h4><i class="fa-solid fa-calculator"></i> حاسبة التغذية الذكية لأليفك 🐾</h4>
-      <div class="calc-inputs">
-        <input type="number" id="petWeightInput" placeholder="وزن الأليف (كجم)..." min="0.1" step="0.1">
-        <button onclick="calculateFeeding()">احسب 🥣</button>
-      </div>
-      <div class="calc-result" id="calcResult"></div>
-    </div>
-
-    <!-- Products Grid -->
-    <h3 style="margin-bottom: 10px;" id="products-section">المنتجات المميزة</h3>
-    <div class="product-grid" id="productGrid">
+  <!-- Payment Modal -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal-card">
+      <button class="close-modal" onclick="closePaymentModal()">&times;</button>
+      <h3 style="color: var(--primary-color); font-size: 16px; margin-bottom: 8px;">إتمام عملية الدفع 🛒</h3>
+      <p style="font-size: 12px; color: var(--text-muted);">بيانات التوصيل والشحن (تم ملؤها من بروفايلك):</p>
       
-      <!-- منتجات القطط -->
-      <div class="product-card" data-pet="cat" data-category="toys" data-title="كرة ألعاب تفاعلية للقطط">
-        <img src="[https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400](https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400)" class="product-img" alt="كرة ألعاب">
-        <div class="product-title">كرة ألعاب تفاعلية للقطط 🐱</div>
-        <div class="product-price">120 ج.م</div>
-        <button class="btn-add-cart" onclick="addToCart('كرة ألعاب تفاعلية للقطط', 120, '[https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400](https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400)')
+      <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; font-size: 12px; margin: 10px 0;" id="checkoutProfileSummary">
+        <!-- يتم ملؤها ديناميكياً -->
+      </div>
+
+      <div class="payment-methods">
+        <div class="pay-method selected" onclick="selectPaymentMethod(this)">
+          <i class="fa-solid fa-money-bill-wave"></i>
+          <span>الدفع عند الاستلام</span>
+        </div>
+        <div class="pay-method" onclick="selectPaymentMethod(this)">
+          <i class="fa-solid fa-credit-card"></i>
+          <span>بطاقة ائتمان</span>
+        </div>
+        <div class="pay-method" onclick="selectPaymentMethod(this)">
+          <i class="fa-solid fa-wallet"></i>
+          <span>محفظة إلكترونية</span>
+        </div>
+      </div>
+
+      <button class="btn-primary-block" onclick="processPayment()">تأكيد الشحن والطلب 🚀</button>
+    </div>
+  </div>
+
+  <!-- Float WhatsApp -->
+  <a href="https://wa.me/201010166348" target="_blank" class="whatsapp-float" title="تواصل معنا عبر واتساب">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i>
+    <span id="toastMsg">تمت العملية بنجاح!</span>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 جميع الحقوق محفوظة لـ متجر زازو zazou 🐾</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    let cart = [];
+    let currentRating = 3;
+    let uploadedFiles = [];
+
+    // Customer Profile Management
+    let userProfile = {
+      name: '',
+      phone: '',
+      city: '',
+      address: ''
+    };
+
+    // Load Profile from LocalStorage on Startup
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedProfile = localStorage.getItem('zazou_user_profile');
+      if (savedProfile) {
+        userProfile = JSON.parse(savedProfile);
+        updateProfileUI();
+      }
+    });
+
+    function openProfileModal() {
+      document.getElementById('profName').value = userProfile.name || '';
+      document.getElementById('profPhone').value = userProfile.phone || '';
+      document.getElementById('profCity').value = userProfile.city || '';
+      document.getElementById('profAddress').value = userProfile.address || '';
+      document.getElementById('profileModal').classList.add('active');
+    }
+
+    function closeProfileModal() {
+      document.getElementById('profileModal').classList.remove('active');
+    }
+
+    function saveProfile(event) {
+      event.preventDefault();
+      userProfile.name = document.getElementById('profName').value;
+      userProfile.phone = document.getElementById('profPhone').value;
+      userProfile.city = document.getElementById('profCity').value;
+      userProfile.address = document.getElementById('profAddress').value;
+
+      localStorage.setItem('zazou_user_profile', JSON.stringify(userProfile));
+      updateProfileUI();
+      closeProfileModal();
+      showToast('تم حفظ بيانات البروفايل بنجاح! 👤');
+    }
+
+    function updateProfileUI() {
+      const nameEl = document.getElementById('headerUserName');
+      if (userProfile.name) {
+        nameEl.innerText = userProfile.name.split(' ')[0]; // إظهار الاسم الأول
+      } else {
+        nameEl.innerText = 'حسابي';
+      }
+    }
+
+    // Sidebar
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.querySelector('.sidebar-overlay').classList.toggle('open');
+    }
+
+    // Cart Drawer
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+
+    document.getElementById('openCartBtn').addEventListener('click', () => {
+      cartDrawer.classList.add('open');
+      cartOverlay.style.display = 'block';
+    });
+
+    function closeCart() {
+      cartDrawer.classList.remove('open');
+      cartOverlay.style.display = 'none';
+    }
+
+    function addToCart(title, price, img) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ title, price, img, qty: 1 });
+      }
+      updateCartUI();
+      showToast(`تم إضافة "${title}" إلى السلة 🛒`);
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const container = document.getElementById('cartItemsContainer');
+      const countEl = document.getElementById('cartCount');
+      const totalEl = document.getElementById('cartTotalPrice');
+
+      let totalQty = 0;
+      let totalPrice = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: var(--text-muted); margin-top: 30px;">السلة فارغة حالياً</p>';
+      } else {
+        container.innerHTML = cart.map((item, idx) => {
+          totalQty += item.qty;
+          totalPrice += item.price * item.qty;
+          return `
+            <div class="cart-item">
+              <img src="${item.img}" alt="${item.title}">
+              <div class="cart-item-info">
+                <h5>${item.title}</h5>
+                <span>${item.price} ج.م</span>
+              </div>
+              <div class="cart-item-controls">
+                <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+                <span class="qty-num">${item.qty}</span>
+                <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+                <button class="delete-item-btn" onclick="removeItem(${idx})" title="حذف">✕</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      countEl.innerText = `(${totalQty})`;
+      totalEl.innerText = `${totalPrice} ج.م`;
+    }
+
+    // Feeding Calculator
+    function calculateFeeding() {
+      const weight = parseFloat(document.getElementById('petWeightInput').value);
+      const resBox = document.getElementById('calcResult');
+      if (!weight || weight <= 0) {
+        resBox.style.display = 'block';
+        resBox.innerText = 'يرجى إدخال وزن صحيح بالكيلوجرام.';
+        return;
+      }
+      const dailyFoodGrams = Math.round(weight * 25);
+      resBox.style.display = 'block';
+      resBox.innerHTML = `الكمية اليومية الموصى بها لأليفك هي حوالي <strong>${dailyFoodGrams} جرام</strong> من الطعام المجفف موزعة على وجبتين. 🥣`;
+    }
+
+    // Category Filter & Search
+    document.querySelectorAll('.cat-chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        
+        const petFilter = this.getAttribute('data-pet');
+        const catFilter = this.getAttribute('data-category');
+        
+        document.querySelectorAll('.product-card').forEach(card => {
+          const cardPet = card.getAttribute('data-pet');
+          const cardCat = card.getAttribute('data-category');
+
+          if (petFilter) {
+            if (petFilter === 'all' || cardPet === petFilter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          } else if (catFilter) {
+            if (cardCat === catFilter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const val = this.value.toLowerCase();
+      document.querySelectorAll('.product-card').forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        card.style.display = title.includes(val) ? 'flex' : 'none';
+      });
+    });
+
+    // Rating System
+    function setRating(rating) {
+      currentRating = rating;
+      const emojis = ['😡', '😐', '😊', '😍', '🤩'];
+      document.getElementById('emojiDisplay').innerText = emojis[rating - 1];
+      const stars = document.querySelectorAll('#starRating span');
+      stars.forEach((s, idx) => {
+        s.classList.toggle('active', idx < rating);
+      });
+    }
+
+    function handleMediaUpload(event) {
+      const files = event.target.files;
+      const container = document.getElementById('mediaPreviewContainer');
+      container.innerHTML = '';
+      uploadedFiles = Array.from(files);
+
+      uploadedFiles.forEach(file => {
+        const url = URL.createObjectURL(file);
+        if (file.type.startsWith('image/')) {
+          const img = document.createElement('img');
+          img.src = url;
+          img.className = 'media-preview-item';
+          container.appendChild(img);
+        }
+      });
+    }
+
+    function submitReview() {
+      const text = document.getElementById('reviewText').value;
+      if (!text) {
+        alert('يرجى كتابة تقييم قبل النشر.');
+        return;
+      }
+      const grid = document.getElementById('reviewsGrid');
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.style.padding = '10px';
+      
+      let starsStr = '★'.repeat(currentRating);
+      let reviewerName = userProfile.name ? userProfile.name : 'عميل zazou 🐾';
+      
+      card.innerHTML = `
+        <h5 style="color:var(--primary-color);">${reviewerName} <span style="color:#ffb400;">${starsStr}</span></h5>
+        <p style="font-size:13px; margin-top:5px;">${text}</p>
+      `;
+      grid.prepend(card);
+      document.getElementById('reviewText').value = '';
+      document.getElementById('mediaPreviewContainer').innerHTML = '';
+      uploadedFiles = [];
+      showToast('شكراً لتقييمك! تم تطبيق خصم 10% على طلبك القادم 🎁');
+    }
+
+    // Payment Modal Controls
+    function openPaymentModal() {
+      if (cart.length === 0) {
+        alert('السلة فارغة!');
+        return;
+      }
+
+      // Check Profile
+      if (!userProfile.name || !userProfile.phone || !userProfile.address) {
+        alert('يرجى إكمال بيانات بروفايلك أولاً قبل الدفع والشحن!');
+        openProfileModal();
+        return;
+      }
+
+      const summaryBox = document.getElementById('checkoutProfileSummary');
+      summaryBox.innerHTML = `
+        <strong>الاسم:</strong> ${userProfile.name}<br>
+        <strong>الهاتف:</strong> ${userProfile.phone}<br>
+        <strong>العنوان:</strong> ${userProfile.city} - ${userProfile.address}
+      `;
+
+      document.getElementById('paymentModal').classList.add('active');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.remove('active');
+    }
+
+    function selectPaymentMethod(el) {
+      document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function processPayment() {
+      closePaymentModal();
+      closeCart();
+      cart = [];
+      updateCartUI();
+      showToast('تم استلام طلبك وشحنه بنجاح بناءً على عنوان بروفايلك! 🚚');
+    }
+
+    // Toast Notification
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
