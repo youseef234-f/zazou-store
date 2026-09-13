@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>زازو zazou | متجر الحيوانات الأليفة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>زازو - zazou | متجر الحيوانات الأليفة</title>
   
   <!-- FontAwesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,6 +24,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -31,245 +32,288 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       overflow-x: hidden;
-      padding-bottom: 40px;
+      padding-bottom: 50px;
     }
 
-    /* Top Banner */
+    /* Top Announcement Bar */
     .top-banner {
-      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+      background: #231242;
       color: #fff;
       text-align: center;
-      padding: 8px 12px;
-      font-size: 13px;
+      padding: 6px 10px;
+      font-size: 11px;
       font-weight: bold;
     }
 
-    /* Header Navbar */
+    /* Header Navbar - Mobile Responsive */
     header {
       background-color: var(--card-bg);
-      padding: 10px 15px;
+      padding: 10px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       position: sticky;
       top: 0;
       z-index: 100;
+      gap: 8px;
     }
 
     .header-right {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
 
     .menu-btn {
       background: none;
       border: none;
-      font-size: 24px;
+      font-size: 22px;
       cursor: pointer;
       color: var(--primary-color);
+      padding: 4px;
     }
 
-    .header-brand-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--primary-color);
-    }
-
-    .header-brand-title span {
-      color: var(--accent-orange);
-      margin-right: 4px;
-    }
-
-    .header-actions {
+    .brand-logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
+      font-size: 17px;
+      font-weight: 800;
     }
 
-    .user-btn {
-      background: #f0f0f0;
+    .brand-logo .ar { color: var(--primary-color); }
+    .brand-logo .sep { color: #ccc; margin: 0 1px; }
+    .brand-logo .en { color: var(--accent-orange); font-family: Arial, sans-serif; }
+    .brand-logo .paw { color: var(--primary-color); font-size: 15px; }
+
+    .header-center-search {
+      flex: 1;
+      max-width: 320px;
+      position: relative;
+    }
+
+    .header-center-search input {
+      width: 100%;
+      padding: 8px 12px 8px 30px;
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+      background: #f8f9fa;
+      outline: none;
+      font-size: 12px;
+    }
+
+    .header-center-search .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      font-size: 12px;
+    }
+
+    .header-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .user-profile-btn {
+      background: #f0edf7;
       color: var(--primary-color);
       border: none;
-      padding: 8px 12px;
-      border-radius: 20px;
+      padding: 7px 10px;
+      border-radius: 18px;
+      font-size: 11px;
       font-weight: bold;
-      font-size: 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
+      white-space: nowrap;
     }
 
     .cart-btn {
-      background-color: var(--accent-orange);
+      background: var(--accent-orange);
       color: #fff;
       border: none;
-      padding: 8px 14px;
-      border-radius: 20px;
+      padding: 7px 12px;
+      border-radius: 18px;
       font-weight: bold;
-      font-size: 13px;
+      font-size: 12px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
+      white-space: nowrap;
     }
 
-    /* Hero Section - زازو في منتصف الموقع مع الأنيميشن */
-    .hero-section {
-      text-align: center;
-      padding: 25px 15px 15px 15px;
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 10px;
+    }
+
+    /* Hero Banner Mobile Optimized */
+    .hero-card {
+      background: var(--primary-color);
+      border-radius: 16px;
+      padding: 20px 16px;
+      color: #fff;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 20px rgba(46, 29, 82, 0.12);
+    }
+
+    .hero-content {
+      flex: 1;
+      text-align: right;
+    }
+
+    .hero-content h1 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .hero-content p {
+      font-size: 12px;
+      color: #dcd6e8;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .btn-hero {
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 18px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(255, 107, 43, 0.3);
+    }
+
+    .hero-image-wrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #3a86ff;
+      overflow: hidden;
+      display: flex;
       align-items: center;
       justify-content: center;
+      border: 3px solid rgba(255,255,255,0.15);
+      flex-shrink: 0;
     }
 
-    .hero-avatar-wrapper {
-      position: relative;
-      width: 140px;
-      height: 140px;
-      margin-bottom: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* تأثير الهالة الضوئية خلف اللوجو */
-    .hero-avatar-glow {
-      position: absolute;
+    .hero-image-wrapper img {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,107,43,0.3) 0%, rgba(46,29,82,0) 70%);
-      animation: pulseGlow 3s infinite ease-in-out;
+      object-fit: cover;
     }
 
-    /* أنيميشن الطفو والتحرك لـ زازو */
-    .hero-avatar-svg {
-      width: 130px;
-      height: 130px;
-      z-index: 2;
-      filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.15));
-      animation: floatAnimation 3.5s infinite ease-in-out;
+    /* Feeding Calculator Widget */
+    .calc-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
-    @keyframes floatAnimation {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
-    }
-
-    @keyframes pulseGlow {
-      0% { transform: scale(0.95); opacity: 0.6; }
-      50% { transform: scale(1.15); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.6; }
-    }
-
-    .hero-title {
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 5px;
+    .calc-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .hero-title .ar { color: var(--primary-color); }
-    .hero-title .en { color: var(--accent-orange); font-family: Arial, sans-serif; }
-
-    .hero-subtitle {
+      gap: 6px;
+      color: var(--primary-color);
       font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 15px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
-    /* Sidebar Drawer */
-    .sidebar-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 200; display: none;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0; right: -280px; width: 280px; height: 100%;
-      background: #fff; z-index: 201;
-      transition: right 0.3s ease;
-      padding: 20px; display: flex;
-      flex-direction: column; gap: 15px;
-    }
-
-    .sidebar.open { right: 0; }
-    .sidebar-overlay.open { display: block; }
-
-    .sidebar-header {
-      display: flex; justify-content: space-between;
-      align-items: center; border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
-
-    .menu-item {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: #333; font-weight: 600;
-      padding: 10px; border-radius: 8px; background: #f9f9f9;
-      cursor: pointer;
-    }
-
-    /* Container & Search */
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 15px 15px 15px;
-    }
-
-    .search-box {
+    .calc-body {
       display: flex;
       gap: 8px;
-      margin-bottom: 15px;
+      align-items: center;
     }
 
-    .search-box input {
+    .calc-input-group {
       flex: 1;
-      padding: 10px 14px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      outline: none;
     }
 
-    .search-box button {
+    .calc-input-group label {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .calc-input-group input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      outline: none;
+      background: #f8fafc;
+      font-size: 12px;
+    }
+
+    .btn-calc {
       background: var(--primary-color);
       color: #fff;
       border: none;
-      padding: 10px 18px;
-      border-radius: 20px;
-      cursor: pointer;
+      padding: 9px 16px;
+      border-radius: 8px;
       font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      margin-top: 15px;
     }
 
-    /* Filters / Categories */
+    .calc-result {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #f0fdf4;
+      border-right: 3px solid var(--accent-green);
+      color: #166534;
+      font-size: 12px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    /* Filter Chips Bar Horizontal Touch Scroll */
     .filter-tabs {
       display: flex;
-      gap: 8px;
-      margin-bottom: 15px;
+      gap: 6px;
+      margin-bottom: 16px;
       overflow-x: auto;
-      padding-bottom: 5px;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .filter-tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .cat-chip {
       background: #fff;
-      border: 1px solid #ddd;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 13px;
+      border: 1px solid #e2e8f0;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 12px;
       white-space: nowrap;
       cursor: pointer;
       font-weight: 600;
+      color: #555;
+      flex-shrink: 0;
     }
 
     .cat-chip.active {
@@ -278,98 +322,95 @@
       border-color: var(--primary-color);
     }
 
-    /* Products Grid */
-    .product-grid {
+    /* Products Grid Mobile 2 Columns */
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 12px;
       display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 25px;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--accent-orange);
+      border-radius: 2px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 600px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
     }
 
     .product-card {
       background: #fff;
       border-radius: 12px;
-      padding: 12px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
       display: flex;
       flex-direction: column;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      justify-content: space-between;
     }
 
     .product-img {
       width: 100%;
-      height: 180px;
+      height: 120px;
       object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .product-title { font-weight: bold; font-size: 15px; margin-bottom: 5px; }
-    .product-price { color: var(--primary-color); font-weight: 800; font-size: 16px; margin-bottom: 10px; }
-    
+    @media (min-width: 600px) {
+      .product-img { height: 150px; }
+    }
+
+    .product-title {
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: #333;
+      line-height: 1.3;
+    }
+
+    .product-price {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
     .btn-add-cart {
       background: var(--primary-color);
       color: #fff;
       border: none;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 8px;
+      border-radius: 6px;
       font-weight: bold;
+      font-size: 11px;
       cursor: pointer;
       width: 100%;
     }
 
-    /* Feeding Calculator Card */
-    .calc-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      margin-bottom: 25px;
-    }
-
-    .calc-card h4 {
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
-
-    .calc-inputs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .calc-inputs input {
-      flex: 1;
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .calc-inputs button {
-      background: var(--accent-orange);
-      color: #fff;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .calc-result {
-      background: #f8f9fa;
-      border-right: 3px solid var(--accent-orange);
-      padding: 10px;
-      font-size: 13px;
-      border-radius: 4px;
-      display: none;
-    }
-
-    /* Dynamic Review System */
+    /* Review Section Mobile */
     .review-card {
       background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
       margin-bottom: 20px;
       text-align: center;
     }
@@ -377,50 +418,53 @@
     .stars {
       display: flex;
       justify-content: center;
-      gap: 5px;
-      font-size: 28px;
+      gap: 4px;
+      font-size: 24px;
       cursor: pointer;
-      margin: 10px 0;
+      margin: 8px 0;
       color: #ccc;
     }
 
     .stars span.active { color: #ffb400; }
 
     .emoji-display {
-      font-size: 32px;
-      margin-bottom: 8px;
+      font-size: 26px;
+      margin-bottom: 4px;
     }
 
     .review-card textarea {
       width: 100%;
-      height: 70px;
-      border: 1px solid #ddd;
+      height: 65px;
+      border: 1px solid #e2e8f0;
       border-radius: 8px;
       padding: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       resize: none;
+      font-size: 12px;
+      outline: none;
     }
 
     .media-upload-label {
       display: inline-block;
       padding: 6px 12px;
-      background: #f0f0f0;
+      background: #f1f5f9;
       border-radius: 6px;
-      font-size: 12px;
+      font-size: 11px;
       cursor: pointer;
       margin-bottom: 10px;
+      font-weight: 600;
     }
 
     .media-preview-container {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       overflow-x: auto;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .media-preview-item {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       object-fit: cover;
       border-radius: 6px;
     }
@@ -429,9 +473,10 @@
       background: var(--accent-orange);
       color: #fff;
       border: none;
-      padding: 10px;
+      padding: 9px;
       border-radius: 8px;
       font-weight: bold;
+      font-size: 12px;
       width: 100%;
       cursor: pointer;
     }
@@ -439,12 +484,45 @@
     .reviews-grid {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 15px;
+      gap: 8px;
+      margin-top: 12px;
       text-align: right;
     }
 
-    /* Cart Drawer & Controls */
+    /* Social Section */
+    .social-media-section {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      margin-top: 20px;
+    }
+
+    .social-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 7px 12px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .social-card.instagram { background: linear-gradient(45deg, #f09433, #bc1888); }
+    .social-card.facebook { background: #1877f2; }
+    .social-card.tiktok { background: #000; }
+
+    /* Cart Drawer & Modals */
     .cart-drawer-overlay, .modal-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -457,8 +535,8 @@
 
     .cart-drawer {
       position: fixed;
-      top: 0; left: -320px;
-      width: 320px; height: 100%;
+      top: 0; left: -300px;
+      width: 300px; height: 100%;
       background: #fff;
       z-index: 301;
       transition: left 0.3s ease;
@@ -469,288 +547,184 @@
     .cart-drawer.open { left: 0; }
 
     .cart-header {
-      padding: 15px;
+      padding: 12px;
       border-bottom: 1px solid #eee;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-    }
+    .close-cart { background: none; border: none; font-size: 20px; cursor: pointer; }
 
-    .cart-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 15px;
-    }
+    .cart-body { flex: 1; overflow-y: auto; padding: 12px; }
 
     .cart-item {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 12px;
-      padding-bottom: 12px;
+      display: flex; gap: 8px; align-items: center;
+      margin-bottom: 10px; padding-bottom: 10px;
       border-bottom: 1px solid #f0f0f0;
     }
 
-    .cart-item img {
-      width: 50px;
-      height: 50px;
-      border-radius: 6px;
-      object-fit: cover;
-    }
-
+    .cart-item img { width: 45px; height: 45px; border-radius: 6px; object-fit: cover; }
     .cart-item-info { flex: 1; }
-    .cart-item-info h5 { font-size: 13px; margin-bottom: 4px; }
-    .cart-item-info span { font-size: 12px; color: var(--primary-color); font-weight: bold; }
+    .cart-item-info h5 { font-size: 12px; margin-bottom: 2px; }
+    .cart-item-info span { font-size: 11px; color: var(--primary-color); font-weight: bold; }
 
-    .cart-item-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .cart-item-controls { display: flex; align-items: center; gap: 4px; }
 
     .qty-btn {
-      width: 24px;
-      height: 24px;
-      background: #e0e0e0;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 22px; height: 22px; background: #e0e0e0;
+      border: none; border-radius: 4px; font-size: 12px;
+      font-weight: bold; cursor: pointer;
+      display: flex; justify-content: center; align-items: center;
     }
 
-    .qty-btn:hover {
-      background: var(--accent-orange);
-      color: #fff;
-    }
-
-    .qty-num {
-      font-size: 13px;
-      font-weight: bold;
-      min-width: 16px;
-      text-align: center;
-    }
+    .qty-num { font-size: 12px; font-weight: bold; min-width: 14px; text-align: center; }
 
     .delete-item-btn {
-      background: none;
-      border: none;
-      color: #ff4d4d;
-      cursor: pointer;
-      font-size: 14px;
-      margin-right: 4px;
+      background: none; border: none; color: #ff4d4d;
+      cursor: pointer; font-size: 12px; margin-right: 2px;
     }
 
-    .cart-footer {
-      padding: 15px;
-      border-top: 1px solid #eee;
-    }
+    .cart-footer { padding: 12px; border-top: 1px solid #eee; }
 
     .total-row {
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-      margin-bottom: 12px;
+      display: flex; justify-content: space-between;
+      font-weight: bold; font-size: 13px; margin-bottom: 10px;
     }
 
     .checkout-btn {
-      width: 100%;
-      background: var(--accent-orange);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
+      width: 100%; background: var(--accent-orange);
+      color: #fff; border: none; padding: 10px;
+      border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;
     }
 
-    /* Modal Dialog Styling (Profile & Payment) */
     .modal-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 420px;
-      position: relative;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      background: #fff; padding: 16px; border-radius: 12px;
+      width: 92%; max-width: 400px; position: relative;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     }
 
     .close-modal {
-      position: absolute;
-      top: 10px; left: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
+      position: absolute; top: 8px; left: 8px;
+      background: none; border: none; font-size: 18px; cursor: pointer;
     }
 
-    .form-group {
-      margin-bottom: 12px;
-      text-align: right;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 4px;
-      color: var(--primary-color);
-    }
-
+    .form-group { margin-bottom: 10px; text-align: right; }
+    .form-group label { display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px; color: var(--primary-color); }
     .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .payment-methods {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 15px 0;
-    }
-
-    .pay-method {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .pay-method.selected {
-      border-color: var(--accent-orange);
-      background: #fff8f5;
+      width: 100%; padding: 8px 10px; border: 1px solid #ddd;
+      border-radius: 6px; font-size: 12px; outline: none;
     }
 
     .btn-primary-block {
-      width: 100%;
-      background: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
+      width: 100%; background: var(--primary-color);
+      color: #fff; border: none; padding: 9px;
+      border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer;
     }
 
-    /* Social Section */
-    .social-media-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      margin-top: 20px;
-    }
-
-    .social-links-grid {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 12px;
-    }
-
-    .social-card {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 12px;
-      border-radius: 20px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .social-card.instagram { background: linear-gradient(45deg, #f09433, #bc1888); }
-    .social-card.facebook { background: #1877f2; }
-    .social-card.tiktok { background: #000; }
-
-    /* Float WhatsApp */
-    .whatsapp-float {
+    /* Sidebar Drawer (الثلاث شرط) */
+    .sidebar-overlay {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #25d366;
-      color: #fff;
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 26px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 150;
-      text-decoration: none;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 200; display: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0; right: -260px; width: 260px; height: 100%;
+      background: #fff; z-index: 201;
+      transition: right 0.3s ease;
+      padding: 16px; display: flex;
+      flex-direction: column; gap: 12px;
+    }
+
+    .sidebar.open { right: 0; }
+    .sidebar-overlay.open { display: block; }
+
+    .sidebar-header {
+      display: flex; justify-content: space-between;
+      align-items: center; border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+    }
+
+    .close-btn { background: none; border: none; font-size: 18px; cursor: pointer; }
+
+    .menu-item {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: #333; font-weight: 600;
+      padding: 8px 10px; border-radius: 6px; background: #f9f9f9;
+      cursor: pointer; font-size: 12px;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed; bottom: 16px; left: 16px;
+      background: #25d366; color: #fff; width: 46px; height: 46px;
+      border-radius: 50%; display: flex; justify-content: center;
+      align-items: center; font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 150; text-decoration: none;
     }
 
     /* Toast Notification */
     .toast {
-      position: fixed;
-      bottom: -60px;
-      right: 50%;
-      transform: translateX(50%);
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: bottom 0.3s ease;
-      z-index: 400;
-      white-space: nowrap;
+      position: fixed; bottom: -60px; right: 50%;
+      transform: translateX(50%); background: #333; color: #fff;
+      padding: 8px 16px; border-radius: 20px; font-size: 12px;
+      display: flex; align-items: center; gap: 6px;
+      transition: bottom 0.3s ease; z-index: 400; white-space: nowrap;
     }
 
-    .toast.show { bottom: 20px; }
+    .toast.show { bottom: 16px; }
 
     footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 20px;
+      text-align: center; padding: 12px; font-size: 11px;
+      color: var(--text-muted); margin-top: 15px;
+    }
+
+    @media (max-width: 480px) {
+      .header-center-search { display: none; }
+      .hero-card { flex-direction: column-reverse; text-align: center; padding: 16px; }
+      .hero-content { text-align: center; }
+      .hero-image-wrapper { width: 80px; height: 80px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-banner">🎉 خصم خاص لكل التقييمات! | زازو zazou</div>
+  <!-- Top Banner -->
+  <div class="top-banner">خصم 20% بمناسبة افتتاح المتجر! استخدم كود: ZAZOU20</div>
 
-  <!-- Header -->
+  <!-- Header Mobile Responsive -->
   <header>
     <div class="header-right">
       <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-      <div class="header-brand-title">
-        زازو <span>zazou</span>
+      <div class="brand-logo">
+        <span class="ar">زازو</span>
+        <span class="sep">|</span>
+        <span class="en">zazou</span>
+        <span class="paw">🐾</span>
       </div>
     </div>
-    <div class="header-actions">
-      <!-- زر بروفايل العميل -->
-      <button class="user-btn" onclick="openProfileModal()">
-        <i class="fa-solid fa-user"></i> <span id="headerUserName">حسابي</span>
+
+    <div class="header-center-search">
+      <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </div>
+
+    <div class="header-right-actions">
+      <button class="user-profile-btn" onclick="openProfileModal()">
+        <i class="fa-solid fa-user"></i>
+        <span id="headerProfileLabel">أهلاً يوسف عمرو (بطاطس)</span>
       </button>
-      <button class="cart-btn" id="openCartBtn">🛒 <span id="cartCount">(0)</span></button>
+
+      <button class="cart-btn" id="openCartBtn">
+        🛒 السلة <span id="cartCount">(0)</span>
+      </button>
     </div>
   </header>
 
-  <!-- Sidebar Menu -->
+  <!-- Sidebar Menu (الثلاث شرط) -->
   <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -769,113 +743,101 @@
     <a href="https://tiktok.com" target="_blank" class="menu-item"><i class="fa-brands fa-tiktok"></i> TikTok</a>
   </div>
 
-  <!-- Hero Section: اللوجو المتحرك في منتصف الصفحة -->
-  <section class="hero-section">
-    <div class="hero-avatar-wrapper">
-      <div class="hero-avatar-glow"></div>
-      <!-- رسم شخصية زازو العصفور برسم متجه إلكتروني ملون وعالي الدقة -->
-      <svg class="hero-avatar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="95" fill="#fcfcfc" stroke="#d4af37" stroke-width="4"/>
-        <circle cx="100" cy="100" r="85" fill="#e8eaed"/>
-        <circle cx="100" cy="100" r="72" fill="#d0d4dc"/>
-        <path d="M 60 100 Q 60 50 100 50 Q 140 50 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="#6c5ce7"/>
-        <circle cx="85" cy="85" r="18" fill="#ffffff" stroke="#2d3436" stroke-width="2"/>
-        <circle cx="88" cy="85" r="7" fill="#000000"/>
-        <circle cx="90" cy="83" r="2.5" fill="#ffffff"/>
-        <path d="M 68 68 Q 85 55 102 70" stroke="#000000" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <path d="M 98 75 Q 160 70 145 105 Q 110 115 95 98 Z" fill="#ff6b2b" stroke="#d35400" stroke-width="2"/>
-        <path d="M 95 98 Q 130 110 105 120 Z" fill="#e67e22"/>
-        <path d="M 70 128 L 100 175 L 130 128 Q 100 145 70 128 Z" fill="#2e1d52"/>
-        <path d="M 85 130 L 100 160 L 115 130 Z" fill="#4a2e80"/>
-        <polygon points="90,165 100,172 110,165 100,178" fill="#f1c40f"/>
-      </svg>
-    </div>
-
-    <h1 class="hero-title">
-      <span class="ar">زازو</span>
-      <span class="en">zazou</span>
-    </h1>
-    <p class="hero-subtitle">عالم أليفك السعيد بين يديك 🐾</p>
-  </section>
-
   <!-- Main Container -->
   <div class="container">
-    
-    <!-- Search Bar -->
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
-      <button>بحث 🔍</button>
+
+    <!-- Hero Banner Mobile Optimized -->
+    <div class="hero-card">
+      <div class="hero-content">
+        <h1 id="heroWelcomeTitle">أهلاً بك وبـ "بطاطس" في زازو - zazou</h1>
+        <p>أفضل الأغذية الصحية والمستلزمات الفاخرة بأعلى جودة وتوصيل مباشر لباب منزلك.</p>
+        <button class="btn-hero" onclick="scrollToProducts()">تسوق العروض</button>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500" alt="Dog image">
+      </div>
     </div>
 
-    <!-- Category Tabs -->
-    <div class="filter-tabs">
-      <button class="cat-chip active" data-pet="all">الكل 🐾</button>
-      <button class="cat-chip" data-pet="cat">قطط 🐱</button>
-      <button class="cat-chip" data-pet="dog">كلاب 🐶</button>
-      <button class="cat-chip" data-pet="bird">عصافير 🐦</button>
-      <button class="cat-chip" data-category="toys">ألعاب 🎾</button>
-      <button class="cat-chip" data-category="accessories">إكسسوارات 🎀</button>
-      <button class="cat-chip" data-category="medical">مستلزمات طبية 🩺</button>
-      <button class="cat-chip" data-category="litter">رمل 🪐</button>
-    </div>
-
-    <!-- Feeding Calculator Card -->
+    <!-- Feeding Calculator -->
     <div class="calc-card">
-      <h4><i class="fa-solid fa-calculator"></i> حاسبة التغذية الذكية لأليفك 🐾</h4>
-      <div class="calc-inputs">
-        <input type="number" id="petWeightInput" placeholder="وزن الأليف (كجم)..." min="0.1" step="0.1">
-        <button onclick="calculateFeeding()">احسب 🥣</button>
+      <div class="calc-header">
+        <i class="fa-solid fa-calculator" style="color: var(--accent-orange);"></i>
+        <span>حاسبة التغذية اليومية 📘</span>
+      </div>
+      <div class="calc-body">
+        <div class="calc-input-group">
+          <label>وزن الحيوان (كجم):</label>
+          <input type="number" id="petWeightInput" placeholder="مثال: 4" min="0.1" step="0.1">
+        </div>
+        <button class="btn-calc" onclick="calculateFeeding()">احسب</button>
       </div>
       <div class="calc-result" id="calcResult"></div>
     </div>
 
-    <!-- Products Grid -->
-    <h3 style="margin-bottom: 10px;" id="products-section">المنتجات المميزة</h3>
+    <!-- Category Filter Tabs Horizontal Touch Scroll -->
+    <div class="filter-tabs">
+      <button class="cat-chip active" data-filter="all">الكل 🐾</button>
+      <button class="cat-chip" data-filter="cat">القطط 🐱</button>
+      <button class="cat-chip" data-filter="dog">الكلاب 🐶</button>
+      <button class="cat-chip" data-filter="bird">الطيور 🦜</button>
+      <button class="cat-chip" data-filter="toys">ألعاب 🎾</button>
+      <button class="cat-chip" data-filter="litter">رمل ومستلزمات نظافة 🪐</button>
+      <button class="cat-chip" data-filter="accessories">إكسسوارات 🎀</button>
+      <button class="cat-chip" data-filter="medical">مستلزمات طبية 🩺</button>
+      <button class="cat-chip" data-filter="other">أخرى 📦</button>
+    </div>
+
+    <!-- Products Grid Mobile 2 Columns -->
+    <div class="section-title" id="productsSection">أحدث المنتجات المختارة</div>
     <div class="product-grid" id="productGrid">
       
-      <!-- منتجات القطط -->
-      <div class="product-card" data-pet="cat" data-category="toys" data-title="كرة ألعاب تفاعلية للقطط">
-        <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400" class="product-img" alt="كرة ألعاب">
+      <div class="product-card" data-cat="dog" data-title="طعام دراي فود فاخر للكلاب">
+        <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400" class="product-img" alt="دراي فود">
+        <div class="product-title">طعام دراي فود فاخر ومغذي للكلاب 🐶</div>
+        <div class="product-price">250 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('طعام دراي فود فاخر للكلاب', 250, 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400')">إضافة للسلة 🛒</button>
+      </div>
+
+      <div class="product-card" data-cat="toys cat" data-title="كرة ألعاب تفاعلية للقطط">
+        <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400" class="product-img" alt="لعبة قطط">
         <div class="product-title">كرة ألعاب تفاعلية للقطط 🐱</div>
         <div class="product-price">120 ج.م</div>
         <button class="btn-add-cart" onclick="addToCart('كرة ألعاب تفاعلية للقطط', 120, 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400')">إضافة للسلة 🛒</button>
       </div>
 
-      <div class="product-card" data-pet="cat" data-category="litter" data-title="رمل كربون معطر للقطط 5 لتر">
-        <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400" class="product-img" alt="رمل معطر">
-        <div class="product-title">رمل كربون معطر للقطط 5 لتر 🐱</div>
+      <div class="product-card" data-cat="litter cat" data-title="رمل كربون معطر للقطط 5 لتر">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400" class="product-img" alt="رمل قطط">
+        <div class="product-title">رمل كربون معطر 5 لتر 🪐</div>
         <div class="product-price">190 ج.م</div>
-        <button class="btn-add-cart" onclick="addToCart('رمل كربون معطر 5 لتر', 190, 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400')">إضافة للسلة 🛒</button>
+        <button class="btn-add-cart" onclick="addToCart('رمل كربون معطر 5 لتر', 190, 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400')">إضافة للسلة 🛒</button>
       </div>
 
-      <!-- منتجات الكلاب -->
-      <div class="product-card" data-pet="dog" data-category="toys" data-title="عظمة مطاطية للكلاب">
-        <img src="https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400" class="product-img" alt="ألعاب كلاب">
-        <div class="product-title">عظمة تسنين مطاطية للكلاب 🐶</div>
-        <div class="product-price">150 ج.م</div>
-        <button class="btn-add-cart" onclick="addToCart('عظمة تسنين مطاطية للكلاب', 150, 'https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400')">إضافة للسلة 🛒</button>
-      </div>
-
-      <div class="product-card" data-pet="dog" data-category="accessories" data-title="طوق جلد مقوى للكلاب">
+      <div class="product-card" data-cat="accessories dog" data-title="طوق جلد أنيق للكلاب">
         <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400" class="product-img" alt="طوق كلاب">
-        <div class="product-title">طوق جلد مقوى بحبل سحب للكلاب 🐶</div>
-        <div class="product-price">210 ج.م</div>
-        <button class="btn-add-cart" onclick="addToCart('طوق جلد مقوى للكلاب', 210, 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400')">إضافة للسلة 🛒</button>
+        <div class="product-title">طوق جلد أنيق مع حبل سحب 🐶</div>
+        <div class="product-price">180 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('طوق جلد أنيق للكلاب', 180, 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400')">إضافة للسلة 🛒</button>
       </div>
 
-      <!-- منتجات العصافير -->
-      <div class="product-card" data-pet="bird" data-category="toys" data-title="أرجوحة خشبية ملونة للعصافير">
-        <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400" class="product-img" alt="مستلزمات عصافير">
-        <div class="product-title">أرجوحة خشبية ملونة مع جرس للعصافير 🐦</div>
+      <div class="product-card" data-cat="bird toys" data-title="أرجوحة خشبية للطيور">
+        <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400" class="product-img" alt="أرجوحة عصافير">
+        <div class="product-title">أرجوحة خشبية ملونة للطيور 🦜</div>
         <div class="product-price">85 ج.م</div>
-        <button class="btn-add-cart" onclick="addToCart('أرجوحة خشبية للعصافير', 85, 'https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400')">إضافة للسلة 🛒</button>
+        <button class="btn-add-cart" onclick="addToCart('أرجوحة خشبية للطيور', 85, 'https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400')">إضافة للسلة 🛒</button>
       </div>
 
-      <div class="product-card" data-pet="bird" data-category="accessories" data-title="طعام حبوب مشكلة للعصافير 1 كجم">
-        <img src="https://images.unsplash.com/photo-1522858547137-f1dcec554f55?w=400" class="product-img" alt="طعام عصافير">
-        <div class="product-title">طعام حبوب مشكلة ومغذي للعصافير 1 كجم 🐦</div>
+      <div class="product-card" data-cat="medical" data-title="شامبو ومطهر طبي للحيوانات">
+        <img src="https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400" class="product-img" alt="مطهر طبي">
+        <div class="product-title">شامبو ومطهر طبي آمن 🩺</div>
+        <div class="product-price">140 ج.م</div>
+        <button class="btn-add-cart" onclick="addToCart('شامبو ومطهر طبي آمن', 140, 'https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400')">إضافة للسلة 🛒</button>
+      </div>
+
+      <div class="product-card" data-cat="other" data-title="وعاء أكل مزدوج متين">
+        <img src="https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=400" class="product-img" alt="وعاء أكل">
+        <div class="product-title">وعاء أكل مزدوج ومتين 📦</div>
         <div class="product-price">95 ج.م</div>
-        <button class="btn-add-cart" onclick="addToCart('طعام حبوب عصافير 1 كجم', 95, 'https://images.unsplash.com/photo-1522858547137-f1dcec554f55?w=400')">إضافة للسلة 🛒</button>
+        <button class="btn-add-cart" onclick="addToCart('وعاء أكل مزدوج ومتين', 95, 'https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=400')">إضافة للسلة 🛒</button>
       </div>
 
     </div>
@@ -907,7 +869,7 @@
     <!-- Social Media Section -->
     <div class="social-media-section">
       <h3><i class="fa-solid fa-heart" style="color: var(--accent-orange);"></i> تواصل معنا وتابع جديدنا</h3>
-      <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">انضم إلى عائلة زازو على منصات التواصل الاجتماعي!</p>
+      <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">انضم إلى عائلة زازو على منصات التواصل الاجتماعي!</p>
       <div class="social-links-grid">
         <a href="https://instagram.com" target="_blank" class="social-card instagram">
           <i class="fa-brands fa-instagram"></i>
@@ -933,7 +895,6 @@
       <h3>سلة التسوق 🛒</h3>
       <button class="close-cart" onclick="closeCart()">&times;</button>
     </div>
-
     <div class="cart-body" id="cartItemsContainer">
       <p style="text-align: center; color: var(--text-muted); margin-top: 30px;">السلة فارغة حالياً</p>
     </div>
@@ -946,29 +907,29 @@
     </div>
   </div>
 
-  <!-- Profile Modal (بروفايل العميل) -->
+  <!-- Profile Modal -->
   <div class="modal-overlay" id="profileModal">
     <div class="modal-card">
       <button class="close-modal" onclick="closeProfileModal()">&times;</button>
-      <h3 style="color: var(--primary-color); font-size: 18px; margin-bottom: 12px;"><i class="fa-solid fa-user-gear"></i> الملف الشخصي للعميل</h3>
+      <h3 style="color: var(--primary-color); font-size: 16px; margin-bottom: 10px;"><i class="fa-solid fa-user-gear"></i> ملف المستخدم والحيوان</h3>
       <form id="profileForm" onsubmit="saveProfile(event)">
         <div class="form-group">
-          <label>الاسم بالكامل:</label>
-          <input type="text" id="profName" placeholder="أدخل اسمك..." required>
+          <label>اسم العميل الكريم:</label>
+          <input type="text" id="profName" placeholder="مثال: يوسف عمرو" required>
         </div>
         <div class="form-group">
-          <label>رقم الهاتف / الواتساب:</label>
+          <label>اسم الحيوان الأليف:</label>
+          <input type="text" id="profPetName" placeholder="مثال: بطاطس" required>
+        </div>
+        <div class="form-group">
+          <label>رقم الهاتف:</label>
           <input type="tel" id="profPhone" placeholder="010XXXXXXXX" required>
         </div>
         <div class="form-group">
-          <label>المدينة / المحافظة:</label>
-          <input type="text" id="profCity" placeholder="القاهرة، الجيزة..." required>
+          <label>العنوان:</label>
+          <textarea id="profAddress" rows="2" placeholder="المدينة، اسم الشارع..." required></textarea>
         </div>
-        <div class="form-group">
-          <label>العنوان التفصيلي للشحن:</label>
-          <textarea id="profAddress" rows="2" placeholder="اسم الشارع، رقم العمارة، الشقة..." required></textarea>
-        </div>
-        <button type="submit" class="btn-primary-block" style="background: var(--accent-orange); margin-top: 10px;">حفظ البيانات 💾</button>
+        <button type="submit" class="btn-primary-block" style="background: var(--accent-orange); margin-top: 8px;">حفظ وتحديث 💾</button>
       </form>
     </div>
   </div>
@@ -977,34 +938,14 @@
   <div class="modal-overlay" id="paymentModal">
     <div class="modal-card">
       <button class="close-modal" onclick="closePaymentModal()">&times;</button>
-      <h3 style="color: var(--primary-color); font-size: 16px; margin-bottom: 8px;">إتمام عملية الدفع 🛒</h3>
-      <p style="font-size: 12px; color: var(--text-muted);">بيانات التوصيل والشحن (تم ملؤها من بروفايلك):</p>
-      
-      <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; font-size: 12px; margin: 10px 0;" id="checkoutProfileSummary">
-        <!-- يتم ملؤها ديناميكياً -->
-      </div>
-
-      <div class="payment-methods">
-        <div class="pay-method selected" onclick="selectPaymentMethod(this)">
-          <i class="fa-solid fa-money-bill-wave"></i>
-          <span>الدفع عند الاستلام</span>
-        </div>
-        <div class="pay-method" onclick="selectPaymentMethod(this)">
-          <i class="fa-solid fa-credit-card"></i>
-          <span>بطاقة ائتمان</span>
-        </div>
-        <div class="pay-method" onclick="selectPaymentMethod(this)">
-          <i class="fa-solid fa-wallet"></i>
-          <span>محفظة إلكترونية</span>
-        </div>
-      </div>
-
-      <button class="btn-primary-block" onclick="processPayment()">تأكيد الشحن والطلب 🚀</button>
+      <h3 style="color: var(--primary-color); font-size: 15px; margin-bottom: 6px;">إتمام عملية الدفع 🛒</h3>
+      <div style="background: #fff7ed; border: 1px dashed var(--accent-orange); padding: 10px; border-radius: 8px; font-size: 12px; margin: 8px 0; line-height: 1.4;" id="checkoutSummaryText"></div>
+      <button class="btn-primary-block" onclick="processPayment()">تأكيد الطلب والتوصيل 🚚</button>
     </div>
   </div>
 
   <!-- Float WhatsApp -->
-  <a href="https://wa.me/201010166348" target="_blank" class="whatsapp-float" title="تواصل معنا عبر واتساب">
+  <a href="https://wa.me/201010166348" target="_blank" class="whatsapp-float" title="تواصل معنا">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
@@ -1023,28 +964,31 @@
     let cart = [];
     let currentRating = 3;
     let uploadedFiles = [];
-
-    // Customer Profile Management
     let userProfile = {
-      name: '',
-      phone: '',
-      city: '',
-      address: ''
+      name: 'يوسف عمرو',
+      petName: 'بطاطس',
+      phone: '01010166348',
+      address: 'القاهرة'
     };
 
-    // Load Profile from LocalStorage on Startup
     window.addEventListener('DOMContentLoaded', () => {
-      const savedProfile = localStorage.getItem('zazou_user_profile');
-      if (savedProfile) {
-        userProfile = JSON.parse(savedProfile);
-        updateProfileUI();
+      const saved = localStorage.getItem('zazou_user_profile');
+      if (saved) {
+        userProfile = JSON.parse(saved);
       }
+      updateProfileUI();
     });
+
+    // Sidebar
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.querySelector('.sidebar-overlay').classList.toggle('open');
+    }
 
     function openProfileModal() {
       document.getElementById('profName').value = userProfile.name || '';
+      document.getElementById('profPetName').value = userProfile.petName || '';
       document.getElementById('profPhone').value = userProfile.phone || '';
-      document.getElementById('profCity').value = userProfile.city || '';
       document.getElementById('profAddress').value = userProfile.address || '';
       document.getElementById('profileModal').classList.add('active');
     }
@@ -1053,11 +997,11 @@
       document.getElementById('profileModal').classList.remove('active');
     }
 
-    function saveProfile(event) {
-      event.preventDefault();
+    function saveProfile(e) {
+      e.preventDefault();
       userProfile.name = document.getElementById('profName').value;
+      userProfile.petName = document.getElementById('profPetName').value;
       userProfile.phone = document.getElementById('profPhone').value;
-      userProfile.city = document.getElementById('profCity').value;
       userProfile.address = document.getElementById('profAddress').value;
 
       localStorage.setItem('zazou_user_profile', JSON.stringify(userProfile));
@@ -1067,18 +1011,18 @@
     }
 
     function updateProfileUI() {
-      const nameEl = document.getElementById('headerUserName');
-      if (userProfile.name) {
-        nameEl.innerText = userProfile.name.split(' ')[0]; // إظهار الاسم الأول
-      } else {
-        nameEl.innerText = 'حسابي';
-      }
+      const label = document.getElementById('headerProfileLabel');
+      const heroTitle = document.getElementById('heroWelcomeTitle');
+      
+      const client = userProfile.name || 'يوسف عمرو';
+      const pet = userProfile.petName || 'بطاطس';
+
+      label.innerText = `أهلاً ${client} (${pet})`;
+      heroTitle.innerText = `أهلاً بك وبـ "${pet}" في زازو - zazou`;
     }
 
-    // Sidebar
-    function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('open');
-      document.querySelector('.sidebar-overlay').classList.toggle('open');
+    function scrollToProducts() {
+      document.getElementById('productsSection').scrollIntoView({ behavior: 'smooth' });
     }
 
     // Cart Drawer
@@ -1144,7 +1088,7 @@
                 <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
                 <span class="qty-num">${item.qty}</span>
                 <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
-                <button class="delete-item-btn" onclick="removeItem(${idx})" title="حذف">✕</button>
+                <button class="delete-item-btn" onclick="removeItem(${idx})">✕</button>
               </div>
             </div>
           `;
@@ -1164,36 +1108,25 @@
         resBox.innerText = 'يرجى إدخال وزن صحيح بالكيلوجرام.';
         return;
       }
-      const dailyFoodGrams = Math.round(weight * 25);
+      const grams = Math.round(weight * 25);
       resBox.style.display = 'block';
-      resBox.innerHTML = `الكمية اليومية الموصى بها لأليفك هي حوالي <strong>${dailyFoodGrams} جرام</strong> من الطعام المجفف موزعة على وجبتين. 🥣`;
+      resBox.innerHTML = `الكمية اليومية الموصى بها لـ <strong>${userProfile.petName || 'أليفك'}</strong> هي حوالي <strong>${grams} جرام</strong> موزعة على وجبتين. 🥣`;
     }
 
-    // Category Filter & Search
+    // Advanced Category Filtering System
     document.querySelectorAll('.cat-chip').forEach(chip => {
       chip.addEventListener('click', function() {
         document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
         this.classList.add('active');
         
-        const petFilter = this.getAttribute('data-pet');
-        const catFilter = this.getAttribute('data-category');
+        const filterVal = this.getAttribute('data-filter');
         
         document.querySelectorAll('.product-card').forEach(card => {
-          const cardPet = card.getAttribute('data-pet');
-          const cardCat = card.getAttribute('data-category');
-
-          if (petFilter) {
-            if (petFilter === 'all' || cardPet === petFilter) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          } else if (catFilter) {
-            if (cardCat === catFilter) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
+          const cardCategories = card.getAttribute('data-cat').split(' ');
+          if (filterVal === 'all' || cardCategories.includes(filterVal)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
           }
         });
       });
@@ -1244,14 +1177,15 @@
       const grid = document.getElementById('reviewsGrid');
       const card = document.createElement('div');
       card.className = 'product-card';
-      card.style.padding = '10px';
+      card.style.padding = '8px';
       
       let starsStr = '★'.repeat(currentRating);
-      let reviewerName = userProfile.name ? userProfile.name : 'عميل zazou 🐾';
-      
+      let client = userProfile.name || 'يوسف عمرو';
+      let pet = userProfile.petName ? ` (${userProfile.petName})` : '';
+
       card.innerHTML = `
-        <h5 style="color:var(--primary-color);">${reviewerName} <span style="color:#ffb400;">${starsStr}</span></h5>
-        <p style="font-size:13px; margin-top:5px;">${text}</p>
+        <h5 style="color:var(--primary-color); font-size:12px;">${client}${pet} 🐾 <span style="color:#ffb400;">${starsStr}</span></h5>
+        <p style="font-size:11px; margin-top:4px;">${text}</p>
       `;
       grid.prepend(card);
       document.getElementById('reviewText').value = '';
@@ -1260,25 +1194,20 @@
       showToast('شكراً لتقييمك! تم تطبيق خصم 10% على طلبك القادم 🎁');
     }
 
-    // Payment Modal Controls
+    // Payment Modal
     function openPaymentModal() {
       if (cart.length === 0) {
         alert('السلة فارغة!');
         return;
       }
+      const client = userProfile.name || 'يوسف عمرو';
+      const pet = userProfile.petName || 'بطاطس';
 
-      // Check Profile
-      if (!userProfile.name || !userProfile.phone || !userProfile.address) {
-        alert('يرجى إكمال بيانات بروفايلك أولاً قبل الدفع والشحن!');
-        openProfileModal();
-        return;
-      }
-
-      const summaryBox = document.getElementById('checkoutProfileSummary');
-      summaryBox.innerHTML = `
-        <strong>الاسم:</strong> ${userProfile.name}<br>
-        <strong>الهاتف:</strong> ${userProfile.phone}<br>
-        <strong>العنوان:</strong> ${userProfile.city} - ${userProfile.address}
+      const summary = document.getElementById('checkoutSummaryText');
+      summary.innerHTML = `
+        🐾 <strong>طلب مخصص لـ:</strong> ${client}<br>
+        🐶 <strong>اسم الأليف:</strong> ${pet}<br>
+        📍 <strong>العنوان:</strong> ${userProfile.address || 'القاهرة'}
       `;
 
       document.getElementById('paymentModal').classList.add('active');
@@ -1288,27 +1217,19 @@
       document.getElementById('paymentModal').classList.remove('active');
     }
 
-    function selectPaymentMethod(el) {
-      document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
-      el.classList.add('selected');
-    }
-
     function processPayment() {
       closePaymentModal();
       closeCart();
       cart = [];
       updateCartUI();
-      showToast('تم استلام طلبك وشحنه بنجاح بناءً على عنوان بروفايلك! 🚚');
+      showToast('تم استلام الطلب بنجاح وسنعمل على توصيله قريباً! 🚚');
     }
 
-    // Toast Notification
     function showToast(msg) {
       const toast = document.getElementById('toast');
       document.getElementById('toastMsg').innerText = msg;
       toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3500);
+      setTimeout(() => { toast.classList.remove('show'); }, 3500);
     }
   </script>
 </body>
